@@ -1,0 +1,23 @@
+---
+import CallLink from "./CallLink.astro";
+import Icon from "./PpcIcon.astro";
+import type { HeroCopy } from "../../lib/ppc/types";
+interface Props {
+  copy: HeroCopy; eyebrow: string; cta: string; note: string;
+  image: string; imageAlt: string; photoLabel: string; photoNote: string;
+  portrait?: boolean; badges: string[];
+}
+const { copy, eyebrow, cta, note, image, imageAlt, photoLabel, photoNote, portrait = false, badges } = Astro.props;
+---
+<section class="campaign-hero service-hero" aria-labelledby="campaign-heading">
+  <div class="campaign-wrap hero-grid">
+    <div class="hero-copy"><p class="eyebrow"><span class="location-dot" aria-hidden="true"></span>{eyebrow}</p><h1 id="campaign-heading"><span data-hero-heading>{copy.heading}</span><em data-hero-accent>{copy.accent}</em></h1><p class="hero-lede" data-hero-body>{copy.body}</p><div class="hero-cta"><CallLink location="hero-primary" label={cta} /></div><p class="hero-expectation">{note}</p><ul class="hero-badges">{badges.map((badge) => <li><Icon name="check" />{badge}</li>)}</ul></div>
+    <div class:list={["hero-visual", "service-hero-visual", { "portrait-hero": portrait }]}>
+      <div class="hero-orbit" aria-hidden="true"></div>
+      <img class="hero-photo" src={image} alt={imageAlt} width={portrait ? "500" : "1800"} height={portrait ? "500" : "1200"} loading="eager" fetchpriority="high" decoding="async" />
+      <div class="service-photo-label"><span class="service-photo-icon"><Icon name={portrait ? "tooth" : "heart"} /></span><div><strong>{photoLabel}</strong><span>{photoNote}</span></div></div>
+      <slot name="visual-detail" />
+    </div>
+  </div>
+  <div class="hero-footnote campaign-wrap"><span class="fine-line" aria-hidden="true"></span><p>Healthy smiles, cared for gently.</p><span class="fine-line" aria-hidden="true"></span></div>
+</section>

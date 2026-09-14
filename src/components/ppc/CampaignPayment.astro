@@ -1,0 +1,7 @@
+---
+import CallLink from "./CallLink.astro";
+import Icon from "./PpcIcon.astro";
+interface Props { heading: string; accent: string; body: string; cta?: string; medicaid?: boolean; }
+const { heading, accent, body, cta = "Talk about cost & coverage", medicaid = false } = Astro.props;
+---
+<section class="payment-section campaign-section" aria-labelledby="payment-heading"><div class="campaign-wrap payment-grid"><div><p class="eyebrow">COST, COVERAGE & YOUR OPTIONS</p><h2 id="payment-heading">{heading}<br /><em>{accent}</em></h2><p class="payment-intro">{body}</p><CallLink location="cost" label={cta} variant="text" />{medicaid && <p class="payment-medicaid">Medicaid is accepted for sedation dentistry. Eligibility and benefits are verified before treatment.</p>}</div><div class="payment-options"><div><span class="payment-icon"><Icon name="card" /></span><div><h3>Your plan, your questions</h3><p>Coverage depends on your plan and treatment. Have your insurance details handy when you call.</p></div></div><div><span class="payment-icon"><Icon name="calendar" /></span><div><h3>CareCredit financing</h3><p>Approved cardholders can pay over time according to CareCredit's terms.</p><p class="financing-terms">Subject to credit approval. Minimum monthly payments may be required.</p></div></div><div><span class="payment-icon"><Icon name="check" /></span><div><h3>Other ways to pay</h3><p>Cash, personal checks, debit, and most major credit cards are accepted.</p></div></div></div></div></section>

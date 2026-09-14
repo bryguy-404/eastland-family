@@ -1,0 +1,6 @@
+---
+import type { Review } from "../../lib/ppc/types";
+interface Props { reviews: Review[]; }
+const { reviews } = Astro.props;
+---
+<section class="reviews-section campaign-section" aria-labelledby="reviews-heading"><div class="campaign-wrap"><div class="review-heading"><div><p class="eyebrow">IN OUR PATIENTS' WORDS</p><h2 id="reviews-heading">A welcome.<br /><em>Worth remembering.</em></h2></div><p>Patients on their experience with<br />the Eastland team, shared on Google.</p></div><div class:list={["review-grid", { "review-grid-pair": reviews.length === 2 }]}>{reviews.map((review) => <figure class="review-card"><span class="quote-mark" aria-hidden="true">“</span><blockquote>{review.quote}</blockquote><figcaption><span class="review-avatar" aria-hidden="true">{review.initial}</span><div><strong>{review.name}</strong><span>Google review</span></div><span class="google-letter" aria-hidden="true">G</span></figcaption></figure>)}</div></div></section>

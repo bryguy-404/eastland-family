@@ -1,0 +1,13 @@
+---
+import { practice } from "../../lib/practice";
+import CallLink from "./CallLink.astro";
+import Icon from "./PpcIcon.astro";
+interface Props { eyebrow: string; heading: string; accent: string; body: string; }
+const { eyebrow, heading, accent, body } = Astro.props;
+---
+<section class="contact-section" aria-labelledby="contact-heading">
+  <div class="campaign-wrap contact-grid">
+    <div class="contact-copy"><p class="eyebrow">{eyebrow}</p><h2 id="contact-heading">{heading}<br /><em>{accent}</em></h2><p>{body}</p><CallLink location="final-call" label={`Call ${practice.phoneDisplay}`} /><div class="contact-location"><Icon name="pin" /><p><strong>Eastland Family Dental</strong>{practice.address.street}<br />{practice.address.cityStateZip}</p></div><p class="service-area">Serving Independence, Blue Springs, Lee's Summit, Raytown, Grain Valley, and nearby communities.</p></div>
+    <div class="visit-card"><div class="visit-card-heading"><Icon name="clock" /><h3>Find a time that works.</h3></div><table><caption>Office hours</caption><tbody>{practice.hours.map((row) => <tr><th scope="row">{row.days}</th><td>{row.hours}</td></tr>)}</tbody></table><div class="map-frame"><iframe title="Location of Eastland Family Dental in Independence, MO" src="https://maps.google.com/maps?q=19401%20East%20US%20Highway%2040%20Ste%20180%2C%20Independence%2C%20MO%2064055&t=m&z=14&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div><a class="directions-link" href={practice.mapsUrl} target="_blank" rel="noopener noreferrer">Get directions<Icon name="arrow" /></a></div>
+  </div>
+</section>

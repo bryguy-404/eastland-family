@@ -1,0 +1,73 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import CallLink from "../components/ppc/CallLink.astro";
+import type { CampaignId, HeroCopy } from "../lib/ppc/types";
+import "../styles/ppc-family.css";
+import "../styles/ppc-services.css";
+
+interface Props {
+  campaign: CampaignId;
+  title: string;
+  description: string;
+  image: string;
+  headerNote: string;
+  stickyLabel: string;
+  disclosure: string;
+  variants: Record<string, HeroCopy>;
+}
+const { campaign, title, description, image, headerNote, stickyLabel, disclosure, variants } = Astro.props;
+---
+<BaseLayout title={title} description={description} image={image} canonical={`https://www.eastlandfamilydental.com/ppc/${campaign}/`} noindex>
+  <div class:list={["family-landing", "service-landing", `service-${campaign}`]} data-service-campaign={campaign} data-hero-variants={JSON.stringify(variants)}>
+    <header class="campaign-header">
+      <div class="campaign-wrap header-inner">
+        <div class="campaign-brand" aria-label="Eastland Family Dental"><img src="/images/eastland-logo.png" alt="" width="64" height="64" /><div><strong>Eastland</strong><span>FAMILY DENTAL</span></div></div>
+        <div class="header-actions"><div class="header-hours"><span>{headerNote}</span><strong>Mon–Thu · 7:00 AM–4:30 PM</strong></div><CallLink location="header-button" label="(816) 795-7007" /></div>
+      </div>
+    </header>
+    <main id="main-content"><slot /></main>
+    <footer class="campaign-footer">
+      <div class="campaign-wrap">
+        <div class="footer-top"><div class="campaign-brand"><img src="/images/eastland-logo.png" alt="" width="48" height="48" loading="lazy" /><div><strong>Eastland</strong><span>FAMILY DENTAL</span></div></div><p>Healthy smiles, cared for gently.</p><a href="/">Visit our main website <span aria-hidden="true">↗</span></a></div>
+        <div class="service-disclosure"><p>{disclosure}</p><p>CareCredit financing is subject to credit approval. Minimum monthly payments may be required.</p></div>
+        <div class="footer-bottom"><p>© {new Date().getFullYear()} Eastland Family Dental</p><p>Treatment recommendations, timelines, and appointment availability vary by patient.</p></div>
+      </div>
+    </footer>
+    <div class="mobile-call-bar" role="region" aria-label="Call Eastland Family Dental"><div><strong>{stickyLabel}</strong><span>Mon–Thu · 7:00 AM–4:30 PM</span></div><CallLink location="sticky-mobile" label="Call now" /></div>
+  </div>
+</BaseLayout>
+
+<script>
+  import type { HeroCopy } from "../lib/ppc/types";
+  const root = document.querySelector<HTMLElement>("[data-service-campaign]");
+  if (root) {
+    // Only authored, allowlisted copy can replace the hero. Never render URL text as HTML.
+    try {
+      const variants: Record<string, HeroCopy> = JSON.parse(root.dataset.heroVariants || "{}");
+      const keyword = new URLSearchParams(window.location.search).get("kw");
+      if (keyword && Object.hasOwn(variants, keyword)) {
+        const copy = variants[keyword];
+        for (const field of ["heading", "accent", "body"] as const) {
+          const element = root.querySelector<HTMLElement>(`[data-hero-${field}]`);
+          if (element) element.textContent = copy[field];
+        }
+      }
+    } catch { /* The complete default hero remains available. */ }
+
+    const analyticsWindow = window as typeof window & { dataLayer?: Record<string, unknown>[] };
+    root.querySelectorAll<HTMLAnchorElement>("[data-call-location]").forEach((link) => {
+      link.addEventListener("click", () => {
+        // Single dataLayer delivery via the existing GTM container. A click is not a completed call.
+        try {
+          analyticsWindow.dataLayer = analyticsWindow.dataLayer || [];
+          analyticsWindow.dataLayer.push({
+            event: "phone_call_click",
+            call_location: link.dataset.callLocation,
+            phone_number: link.getAttribute("href")?.replace("tel:", ""),
+            landing_page: root.dataset.serviceCampaign,
+          });
+        } catch { /* Analytics failure must not affect the telephone link. */ }
+      });
+    });
+  }
+</script>

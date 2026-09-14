@@ -1,0 +1,37 @@
+---
+import Layout from "../../layouts/ServiceCampaignLayout.astro";
+import Hero from "../../components/ppc/CampaignHero.astro";
+import CallLink from "../../components/ppc/CallLink.astro";
+import Icon from "../../components/ppc/PpcIcon.astro";
+import Payment from "../../components/ppc/CampaignPayment.astro";
+import Reviews from "../../components/ppc/CampaignReviews.astro";
+import Doctor from "../../components/ppc/CampaignDoctor.astro";
+import Faq from "../../components/ppc/CampaignFaq.astro";
+import Contact from "../../components/ppc/CampaignContact.astro";
+import { crownHero, crownVariants, cerecSteps, crownReasons, crownFaqs } from "../../lib/ppc/crowns";
+import { practiceReviews } from "../../lib/ppc/reviews";
+const labSteps = [
+  { title: "Prepare & record", body: "A scan or impression records the prepared tooth and the bite." },
+  { title: "A temporary, if needed", body: "A temporary restoration may protect the tooth while the laboratory makes the final crown." },
+  { title: "Fit at a delivery visit", body: "The dentist checks the fit, appearance, contacts, and bite before final placement." },
+];
+---
+<Layout campaign="crowns" title="Dental Crowns & CEREC in Independence, MO | Eastland Family Dental" description="Many eligible crowns can be made in one visit with Eastland's CEREC technology. Explore crowns and bridges in Independence, MO. Call to arrange an examination." image="/images/hero-dental-care.jpg" headerNote="Questions about a crown? Start here." stickyLabel="Let's talk about your tooth." variants={crownVariants} disclosure="Dr. Glenn Ashworth is a general dentist. Same-day CEREC restorations are available for many eligible cases; some cases and materials require a dental laboratory. Suitability is determined by clinical examination.">
+  <Hero copy={crownHero} eyebrow="DENTAL CROWNS IN INDEPENDENCE, MO" cta="Call about a crown evaluation" note="An examination determines suitability. Some cases and materials require a dental laboratory." image="/images/hero-dental-care.jpg" imageAlt="A clinician explains dental imaging to an adult patient" photoLabel="A clearer picture of your care." photoNote="Your tooth. Your options. Explained." badges={["In-office CEREC technology", "Crowns & bridges"]}>
+    <div slot="visual-detail" class="cerec-hero-badge"><span>CEREC</span><strong>Scan. Design.<br />Mill. Fit.</strong></div>
+  </Hero>
+
+  <section class="service-assurance" aria-label="Crowns at Eastland"><div class="campaign-wrap assurance-grid"><div><Icon name="tooth" /><p><strong>Care for the tooth you have</strong><span>Examination before a recommendation</span></p></div><div><Icon name="clock" /><p><strong>Many crowns in one visit</strong><span>When the tooth is suitable for CEREC</span></p></div><div><Icon name="card" /><p><strong>Talk through the practical part</strong><span>Coverage & CareCredit questions welcome</span></p></div></div></section>
+
+  <section class="campaign-section cerec-section" id="cerec" aria-labelledby="cerec-heading"><div class="campaign-wrap"><div class="cerec-heading-row"><div><p class="eyebrow">THE CONVENIENCE OF CEREC</p><h2 id="cerec-heading">Designed here.<br /><em>Made for your tooth.</em></h2></div><p>A digital scan, a custom design, and in-office milling. For eligible teeth, the process can come together in one appointment.</p></div><ol class="cerec-steps">{cerecSteps.map((step, index) => <li><div class="cerec-step-top"><span>0{index + 1}</span><Icon name={(["tooth", "sparkle", "calendar", "check"] as const)[index]} /></div><h3>{step.title}</h3><p>{step.body}</p></li>)}</ol><div class="cerec-caveat"><div><Icon name="heart" /><div><h3>The right restoration comes first.</h3><p>Some teeth need a different material, a laboratory-made crown, or another treatment. Dr. Ashworth will recommend what suits your tooth after an examination.</p></div></div><CallLink location="cerec" label="Ask about an evaluation" /></div></div></section>
+
+  <section class="campaign-section crown-reasons" aria-labelledby="reasons-heading"><div class="campaign-wrap"><div class="service-section-heading"><p class="eyebrow">DIFFERENT REASONS. ONE PLACE TO START.</p><h2 id="reasons-heading">What brings you in?<br /><em>Let's talk about it.</em></h2><p>You may already have a recommendation, or simply know something has changed. A clinical examination helps identify the right next step.</p></div><div class="service-card-grid">{crownReasons.map((reason) => <article class="service-card"><span class="service-card-icon"><Icon name={reason.icon} /></span><h3>{reason.title}</h3><p>{reason.body}</p><CallLink location={reason.location} label={reason.cta} variant="text" /></article>)}</div></div></section>
+
+  <section class="campaign-section lab-section" aria-labelledby="lab-heading"><div class="campaign-wrap lab-grid"><div><p class="eyebrow">WHEN A LABORATORY CROWN FITS BETTER</p><h2 id="lab-heading">Another route.<br /><em>The same care.</em></h2><p>Material, tooth position, and your bite all matter. A laboratory-made restoration may be the better choice for a crown or bridge.</p><CallLink location="labroute" label="Discuss your restoration options" variant="text" /></div><ol class="lab-steps">{labSteps.map((step, index) => <li><span>0{index + 1}</span><div><h3>{step.title}</h3><p>{step.body}</p></div></li>)}</ol></div></section>
+
+  <Doctor heading="Precision matters." accent="So does understanding." body="Dr. Glenn Ashworth is a general dentist and Air Force veteran with an Advanced Education in General Dentistry residency and an additional preceptorship. He helps you understand the recommendation before you decide." points={[{ title: "A plan for your tooth", body: "The restoration is selected for your clinical needs, with a discussion of the alternatives." }, { title: "Make room for comfort", body: "Share any anxiety when you call. Ask about nitrous oxide and other appropriate comfort options." }]} />
+  <Reviews reviews={[practiceReviews.ashtin, practiceReviews.daniil]} />
+  <Payment heading="A clearer plan." accent="Including the cost." body="A crown's cost depends on the tooth, material, and treatment involved. Ask about an examination, a treatment estimate, and the process for checking your insurance benefits." />
+  <Faq eyebrow="QUESTIONS ABOUT CROWNS & CEREC" items={crownFaqs} />
+  <Contact eyebrow="LET'S FIND YOUR NEXT STEP" heading="A tooth on your mind?" accent="Let's talk." body="Call about an examination, a recommended crown, or a change you've noticed. Tell our team what is happening and ask about appointment availability." />
+</Layout>

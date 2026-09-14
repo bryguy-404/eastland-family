@@ -1,0 +1,10 @@
+---
+import CallLink from "./CallLink.astro";
+import Icon from "./PpcIcon.astro";
+import type { FaqItem } from "../../lib/ppc/types";
+interface Props { eyebrow?: string; items: FaqItem[]; }
+const { eyebrow = "A FEW THINGS YOU MIGHT BE WONDERING", items } = Astro.props;
+---
+<section class="faq-section campaign-section" aria-labelledby="faq-heading">
+  <div class="campaign-wrap faq-grid"><div><p class="eyebrow">{eyebrow}</p><h2 id="faq-heading">Good questions.<br /><em>Clear answers.</em></h2><p>Have something else on your mind?<br />We're happy to talk.</p><CallLink location="faq" label="(816) 795-7007" variant="text" /></div><div class="faq-list">{items.map((item) => <details><summary>{item.question}<span class="faq-toggle"><Icon name="plus" /></span></summary><div class="faq-answer"><p>{item.answer}</p>{item.source && <a class="faq-source" href={item.source.href} target="_blank" rel="noopener noreferrer">{item.source.label} ↗</a>}</div></details>)}</div></div>
+</section>

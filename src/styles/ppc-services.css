@@ -1,0 +1,440 @@
+/* Campaign-specific composition layered over the approved family design.
+   Only pages with .service-landing are affected. Dentures retain a larger reading scale. */
+.service-landing { --service-body: 16px; --service-small: 14px; --service-fine: 12px; }
+.service-landing .service-hero { padding-top: 58px; }
+.service-landing .hero-copy { padding-block: 15px; }
+.service-landing h1 { font-size: clamp(45px, 4.8vw, 68px); }
+.service-landing .hero-lede { font-size: 17px; max-width: 505px; line-height: 1.8; }
+.service-landing .hero-expectation { margin-top: 15px; color: var(--family-muted); font-size: 13px; max-width: 440px; line-height: 1.65; }
+.service-landing .hero-badges { list-style: none; margin: 25px 0 0; padding: 0; display: grid; gap: 9px; }
+.service-landing .hero-badges li { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--family-ink); }
+.service-landing .hero-badges svg { width: 16px; height: 16px; flex: none; color: var(--family-green); }
+.service-landing .service-hero-visual { padding-bottom: 36px; }
+.service-landing .hero-photo { height: 525px; }
+.service-landing .service-photo-label { position: absolute; z-index: 2; left: -25px; bottom: 5px; right: 30px; background: #fff; border: 1px solid #e0e8e4; border-radius: 12px; display: flex; gap: 14px; align-items: center; padding: 23px 24px; box-shadow: 0 12px 35px #023a6610; }
+.service-landing .service-photo-icon { display: grid; place-items: center; width: 45px; height: 45px; border-radius: 50%; background: #edf3ec; color: var(--family-green); flex: none; }
+.service-landing .service-photo-label strong { font-family: Georgia, serif; font-size: 21px; line-height: 1.25; font-weight: 400; display: block; }
+.service-landing .service-photo-label div > span { font-size: 12px; color: var(--family-muted); display: block; margin-top: 5px; line-height: 1.5; }
+.service-landing .hero-footnote { padding-block: 34px 28px; }
+.service-landing .service-assurance { background: #edf2ed; border-block: 1px solid #dae3dc; padding-block: 30px; }
+.service-landing .assurance-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 34px; }
+.service-landing .assurance-grid > div { display: flex; gap: 15px; align-items: center; }
+.service-landing .assurance-grid > div + div { padding-left: 32px; border-left: 1px solid #bacac3; }
+.service-landing .assurance-grid svg { width: 28px; height: 28px; color: var(--family-green); flex: none; }
+.service-landing .assurance-grid strong { font-weight: 650; display: block; font-size: 13px; }
+.service-landing .assurance-grid span { display: block; font-size: 11px; color: var(--family-muted); margin-top: 4px; }
+.service-landing .service-section-heading { max-width: 710px; margin: 0 auto 43px; text-align: center; }
+.service-landing .service-section-heading > p:not(.eyebrow) { margin: 23px auto 0; max-width: 650px; font-size: var(--service-body); line-height: 1.8; color: var(--family-muted); }
+.service-landing .service-section-heading h2 { font-size: clamp(35px, 3.4vw, 48px); }
+.service-landing .service-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 21px; }
+.service-landing .service-card { background: #fff; padding: 30px 28px 21px; border: 1px solid #dfe6e0; border-radius: 12px; display: flex; flex-direction: column; }
+.service-landing .service-card-icon { display: grid; place-items: center; background: #edf3ec; color: var(--family-green); width: 45px; height: 45px; border-radius: 50%; margin-bottom: 22px; }
+.service-landing .service-card h3 { font-size: 25px; line-height: 1.25; letter-spacing: -.5px; }
+.service-landing .service-card > p { font-size: 14px; color: var(--family-muted); line-height: 1.8; margin-block: 15px 19px; }
+.service-landing .service-card .ppc-call { font-size: 13px; justify-content: space-between; margin-top: auto; border-top: 1px solid #e3e9e4; padding-top: 13px; }
+.service-landing .service-process-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+.service-landing .process-index { font-family: Georgia, serif; color: var(--family-green); font-size: 36px; line-height: 1; display: block; padding-bottom: 21px; border-bottom: 1px solid #bfcfc6; margin-bottom: 23px; }
+.service-landing .service-process-grid h3 { font-size: 25px; line-height: 1.25; letter-spacing: -.4px; }
+.service-landing .service-process-grid p { margin-top: 15px; font-size: var(--service-body); color: var(--family-muted); line-height: 1.8; }
+.service-landing .process-bottom { display: flex; align-items: center; justify-content: space-between; gap: 35px; border-top: 1px solid #bfcfc6; padding-top: 32px; margin-top: 40px; }
+.service-landing .process-bottom > p { font-size: var(--service-small); color: var(--family-muted); max-width: 410px; }
+.service-landing .process-bottom .ppc-call { flex: none; }
+.service-landing .comfort-section { background: #f0ede4; }
+.service-landing .comfort-grid { display: grid; grid-template-columns: .9fr 1fr; gap: 84px; align-items: center; }
+.service-landing .comfort-photo { position: relative; padding-bottom: 35px; }
+.service-landing .comfort-photo > img { width: 100%; height: 455px; border-radius: 160px 160px 16px 16px; object-fit: cover; object-position: 35% center; }
+.service-landing .comfort-photo-caption { background: #023a66; color: #fff; display: flex; align-items: center; gap: 17px; position: absolute; bottom: 0; left: 24px; right: -22px; border-radius: 12px; padding: 23px; }
+.service-landing .comfort-photo-caption > svg { width: 30px; height: 30px; flex: none; color: #bad0c4; }
+.service-landing .comfort-photo-caption > span { font-size: 15px; line-height: 1.65; }
+.service-landing .comfort-photo-caption strong { font-weight: 550; }
+.service-landing .comfort-copy > p:not(.eyebrow) { font-size: var(--service-body); line-height: 1.85; color: var(--family-muted); margin: 22px 0; }
+.service-landing .doctor-introduction { border-left: 2px solid #9db7a9; padding-left: 20px; margin-block: 26px 18px; }
+.service-landing .doctor-introduction > strong { font-size: var(--service-small); display: block; font-weight: 650; margin-bottom: 8px; }
+.service-landing .doctor-introduction p { font-size: var(--service-small); color: var(--family-muted); line-height: 1.8; }
+.service-landing .review-grid-pair { grid-template-columns: 1fr 1fr; gap: 25px; }
+.service-landing .review-card { padding: 31px 34px; }
+.service-landing .review-card blockquote { font-size: var(--service-body); line-height: 1.85; white-space: pre-line; }
+.service-landing .review-card strong { font-size: var(--service-small); }
+.service-landing .review-card figcaption div span { font-size: var(--service-fine); }
+.service-landing .review-heading > p { font-size: var(--service-small); }
+.service-landing .payment-intro { font-size: var(--service-body); line-height: 1.85; }
+.service-landing .payment-options { padding-inline: 30px; }
+.service-landing .payment-options h3 { font-size: var(--service-body); }
+.service-landing .payment-options p { font-size: var(--service-small); line-height: 1.8; }
+.service-landing .payment-options .financing-terms { font-size: var(--service-fine); margin-top: 12px; }
+.service-landing .payment-medicaid { font-size: var(--service-small); color: var(--family-muted); line-height: 1.8; max-width: 425px; margin-top: 18px; }
+.service-landing .faq-section { padding-top: 80px; }
+.service-landing .faq-grid { border: 0; padding-top: 0; }
+.service-landing .faq-list summary { font-size: var(--service-body); }
+.service-landing .faq-answer { font-size: var(--service-small); line-height: 1.9; }
+.service-landing .faq-grid > div > p:not(.eyebrow) { font-size: var(--service-small); }
+.service-landing .faq-source { display: inline-flex; align-items: center; min-height: 44px; font-size: var(--service-fine); color: #035f9f; text-decoration: underline; text-underline-offset: 4px; margin-top: 8px; }
+.service-landing .team-copy > p:not(.eyebrow) { font-size: var(--service-body); line-height: 1.85; }
+.service-landing .care-principles h3 { font-size: var(--service-small); }
+.service-landing .care-principles p { font-size: var(--service-small); line-height: 1.8; }
+.service-landing .doctor-label div > span { font-size: var(--service-fine); }
+.service-landing .service-disclosure { border-top: 1px solid #173d561c; padding-block: 21px; font-size: 11px; color: var(--family-muted); line-height: 1.8; }
+.service-landing .service-disclosure p + p { margin-top: 7px; }
+
+/* Dentures: generous reading sizes, four distinct options and a warm neutral palette. */
+.service-dentures { --service-body: 17px; --service-small: 16px; --service-fine: 14px; --family-muted: #455665; }
+.service-dentures .hero-lede { font-size: 18px; }
+.service-dentures .hero-expectation { font-size: 16px; }
+.service-dentures .hero-badges li { font-size: 15px; }
+.service-dentures .ppc-call.ppc-call--button { font-size: 18px; min-height: 58px; padding-inline: 24px; }
+.service-dentures .ppc-call.ppc-call--text { font-size: 17px; min-height: 48px; }
+.service-dentures .header-actions .ppc-call.ppc-call--button { font-size: 16px; min-height: 54px; }
+.service-dentures .hero-visual { margin-left: 22px; }
+.service-dentures .portrait-hero .hero-photo { height: 555px; object-position: center top; border-radius: 230px 230px 20px 20px; border: 14px solid #e4e9e0; }
+.service-dentures .service-photo-label { left: -25px; right: -8px; padding: 22px 26px; }
+.service-dentures .service-photo-label strong { font-size: 26px; }
+.service-dentures .service-photo-label div > span { font-size: 15px; }
+.service-dentures .service-assurance { background: #ece9df; }
+.service-dentures .assurance-grid strong { font-size: 16px; line-height: 1.5; }
+.service-dentures .assurance-grid span { font-size: 14px; line-height: 1.65; }
+.service-dentures .denture-options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+.service-dentures .denture-option { border: 1px solid #d8e1d9; border-radius: 14px; padding: 32px; background: #fff; display: flex; flex-direction: column; }
+.service-dentures .option-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 27px; }
+.service-dentures .option-top .stage-icon { width: 55px; height: 55px; }
+.service-dentures .option-tag { font-size: 11px; letter-spacing: 1.4px; font-weight: 700; color: #4c7465; margin-bottom: 10px; }
+.service-dentures .denture-option h3 { font-size: 34px; line-height: 1.15; letter-spacing: -.6px; }
+.service-dentures .denture-option > p:not(.option-tag) { font-size: 17px; line-height: 1.85; color: var(--family-muted); margin-block: 18px 21px; }
+.service-dentures .option-consideration { background: #f1f5ef; border-radius: 8px; padding: 17px 19px; display: flex; gap: 11px; margin-bottom: 21px; }
+.service-dentures .option-consideration svg { color: var(--family-green); width: 19px; height: 19px; flex: none; margin-top: 3px; }
+.service-dentures .option-consideration p { font-size: 15px; line-height: 1.8; color: #455d51; }
+.service-dentures .denture-option > .ppc-call { justify-content: space-between; margin-top: auto; }
+.service-dentures .options-help { display: flex; justify-content: center; align-items: center; gap: 12px; margin: 29px auto 0; max-width: 800px; }
+.service-dentures .options-help svg { color: var(--family-green); flex: none; }
+.service-dentures .options-help p { font-size: 16px; color: var(--family-muted); }
+.service-dentures .denture-process { background: #ecefe7; }
+.service-dentures .service-process-grid h3 { font-size: 27px; }
+.service-dentures .service-process-grid { gap: 30px; }
+.service-dentures .faq-list summary { font-size: 19px; }
+.service-dentures .faq-answer { font-size: 17px; }
+.service-dentures .contact-copy > p:not(.eyebrow):not(.service-area) { font-size: 18px; }
+.service-dentures .contact-location p, .service-dentures .contact-location strong { font-size: 16px; }
+.service-dentures .service-area { font-size: 14px; }
+.service-dentures .visit-card table { font-size: 15px; }
+.service-dentures .visit-card caption { font-size: 12px; }
+.service-dentures .directions-link { font-size: 15px; }
+.service-dentures .visit-card { padding: 28px 26px 15px; }
+.service-dentures .visit-card h3 { font-size: 25px; }
+.service-dentures .service-disclosure { font-size: 13px; }
+.service-dentures .footer-bottom { font-size: 12px; }
+.service-dentures .footer-top > a { font-size: 14px; }
+
+/* Crowns: the navy CEREC section is the main visual and informational focus. */
+.service-crowns { --family-green: #466f83; }
+.service-crowns .service-assurance { background: #edf3f6; }
+.service-crowns .hero-photo { border-radius: 170px 170px 18px 18px; object-position: 43% center; }
+.service-crowns .cerec-hero-badge { position: absolute; z-index: 2; right: -21px; top: 39px; background: #e6ede5; color: #153d57; padding: 24px; border-radius: 12px; transform: rotate(5deg); box-shadow: 0 3px 0 #fff; }
+.service-crowns .cerec-hero-badge > span { display: block; font-size: 11px; letter-spacing: 2px; font-weight: 750; margin-bottom: 9px; }
+.service-crowns .cerec-hero-badge strong { display: block; font-family: Georgia, serif; font-size: 24px; font-weight: 400; line-height: 1.2; }
+.service-crowns .cerec-section { background: #023a66; color: #fff; }
+.service-crowns .cerec-heading-row { display: flex; justify-content: space-between; align-items: end; gap: 80px; margin-bottom: 48px; }
+.service-crowns .cerec-section .eyebrow { color: #bbd7d1; }
+.service-crowns .cerec-section h2 { color: #fff; }
+.service-crowns .cerec-section h2 em { color: #bcd9d0; }
+.service-crowns .cerec-heading-row > p { font-size: 16px; color: #d5e3ec; line-height: 1.8; max-width: 405px; margin-bottom: 5px; }
+.service-crowns .cerec-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 0; list-style: none; margin: 0; }
+.service-crowns .cerec-steps li { border-top: 1px solid #ffffff40; padding-top: 24px; }
+.service-crowns .cerec-step-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+.service-crowns .cerec-step-top > span { font-family: Georgia, serif; font-size: 36px; line-height: 1; color: #bcd9d0; }
+.service-crowns .cerec-step-top > svg { width: 25px; height: 25px; color: #bcd9d0; }
+.service-crowns .cerec-steps h3 { font-size: 27px; color: #fff; line-height: 1.25; }
+.service-crowns .cerec-steps p { font-size: 14px; color: #d5e3ec; line-height: 1.85; margin-top: 15px; }
+.service-crowns .cerec-caveat { display: flex; align-items: center; gap: 40px; justify-content: space-between; padding: 27px 29px; border-radius: 12px; background: #ffffff0b; border: 1px solid #ffffff28; margin-top: 45px; }
+.service-crowns .cerec-caveat > div { display: flex; gap: 17px; }
+.service-crowns .cerec-caveat > div > svg { color: #bcd9d0; width: 26px; height: 26px; flex: none; margin-top: 3px; }
+.service-crowns .cerec-caveat h3 { font-family: var(--font-body); font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 9px; }
+.service-crowns .cerec-caveat p { font-size: 13px; color: #d5e3ec; line-height: 1.8; max-width: 660px; }
+.service-crowns .cerec-caveat .ppc-call { flex: none; font-size: 13px; }
+.service-crowns .lab-section { background: #ecefe7; }
+.service-crowns .lab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+.service-crowns .lab-grid > div > p:not(.eyebrow) { font-size: 16px; color: var(--family-muted); line-height: 1.85; margin: 24px 0 17px; max-width: 450px; }
+.service-crowns .lab-steps { list-style: none; margin: 0; padding: 0; }
+.service-crowns .lab-steps li { display: flex; align-items: start; gap: 22px; padding-block: 23px; border-bottom: 1px solid #bfcdc4; }
+.service-crowns .lab-steps li:first-child { padding-top: 0; }
+.service-crowns .lab-steps li:last-child { border-bottom: 0; padding-bottom: 0; }
+.service-crowns .lab-steps li > span { font-family: Georgia, serif; font-size: 28px; line-height: 1.2; color: var(--family-green); }
+.service-crowns .lab-steps h3 { font-size: 23px; line-height: 1.25; }
+.service-crowns .lab-steps p { font-size: 14px; color: var(--family-muted); line-height: 1.8; margin-top: 10px; }
+
+/* Kids: a softer first impression, a first-visit walkthrough, and room for parents' worries. */
+.service-kids .service-hero { background: #edf5f7; }
+.service-kids .hero-photo { border-radius: 190px 190px 20px 20px; object-position: 53% center; }
+.service-kids .hero-orbit { border-color: #8aa6a866; }
+.service-kids .kids-hero-note { position: absolute; z-index: 2; right: -22px; top: 44px; background: #efe6d7; width: 141px; height: 141px; display: grid; place-content: center; justify-items: center; gap: 8px; border-radius: 50%; transform: rotate(9deg); text-align: center; box-shadow: 0 3px 0 #fffdf8; }
+.service-kids .kids-hero-note svg { width: 29px; height: 29px; color: var(--family-green); }
+.service-kids .kids-hero-note span { font-family: Georgia, serif; font-size: 15px; line-height: 1.5; }
+.service-kids .kids-hero-note strong { font-style: italic; font-weight: 400; }
+.service-kids .service-assurance { background: #dfeef3; border-color: #c8dce3; }
+.service-kids .assurance-grid > div + div { border-color: #b8d0d6; }
+.service-kids .first-visit-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; padding: 0; margin: 0; list-style: none; }
+.service-kids .first-visit-grid li { background: #f0f5f5; border: 1px solid #dae4e2; padding: 27px 24px; border-radius: 14px; }
+.service-kids .first-visit-grid li:nth-child(even) { background: #f5f1e9; border-color: #e6dfd1; }
+.service-kids .visit-step-marker { display: flex; align-items: center; justify-content: space-between; margin-bottom: 25px; color: var(--family-green); }
+.service-kids .visit-step-marker > span { font-family: Georgia, serif; font-size: 33px; line-height: 1; }
+.service-kids .visit-step-marker > svg { width: 27px; height: 27px; }
+.service-kids .first-visit-grid h3 { font-size: 25px; line-height: 1.25; }
+.service-kids .first-visit-grid p { font-size: 14px; color: var(--family-muted); line-height: 1.8; margin-top: 17px; }
+.service-kids .first-visit-callout { display: flex; align-items: center; justify-content: space-between; gap: 44px; margin-top: 30px; padding: 27px 0 0; }
+.service-kids .first-visit-callout > div { display: flex; align-items: center; gap: 17px; }
+.service-kids .first-visit-callout > div > svg { width: 27px; height: 27px; color: var(--family-green); flex: none; }
+.service-kids .first-visit-callout p { font-size: 14px; color: var(--family-muted); line-height: 1.8; max-width: 650px; }
+.service-kids .first-visit-callout strong { display: block; color: var(--family-ink); font-weight: 650; margin-bottom: 3px; }
+.service-kids .first-visit-callout .ppc-call { flex: none; }
+.service-kids .kids-services { background: #edf3f6; }
+.service-kids .service-card-icon { background: #e4f0f1; }
+.service-kids .nervous-section { background: #efe9dd; }
+.service-kids .nervous-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 110px; align-items: center; }
+.service-kids .nervous-heart { display: grid; place-items: center; width: 57px; height: 57px; border: 1px solid #adbfb0; border-radius: 50%; margin-bottom: 25px; color: var(--family-green); transform: rotate(-12deg); }
+.service-kids .nervous-heart svg { width: 28px; height: 28px; }
+.service-kids .nervous-grid > div > p:not(.eyebrow) { font-size: 16px; color: var(--family-muted); line-height: 1.85; margin: 23px 0 27px; }
+.service-kids .nervous-points > div { position: relative; border-bottom: 1px solid #c6cbbb; padding: 25px 0 25px 50px; }
+.service-kids .nervous-points > div:first-child { padding-top: 0; }
+.service-kids .nervous-points > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.service-kids .nervous-points div > span { position: absolute; left: 0; top: 28px; font-family: Georgia, serif; font-size: 24px; color: var(--family-green); line-height: 1; }
+.service-kids .nervous-points > div:first-child > span { top: 3px; }
+.service-kids .nervous-points h3 { font-size: 25px; line-height: 1.25; }
+.service-kids .nervous-points p { font-size: 15px; line-height: 1.8; color: var(--family-muted); margin-top: 12px; }
+@media (max-width: 1100px) {
+  .service-landing .service-photo-label { padding: 20px; right: 0; left: -13px; gap: 12px; }
+  .service-landing .service-photo-label strong { font-size: 19px; }
+  .service-landing .service-photo-label div > span { font-size: 11px; }
+  .service-landing .service-card-grid { gap: 18px; }
+  .service-landing .service-card { padding: 25px 23px 20px; }
+  .service-landing .assurance-grid { gap: 23px; }
+  .service-landing .assurance-grid > div + div { padding-left: 23px; }
+  .service-landing .assurance-grid > div { gap: 11px; }
+  .service-landing .assurance-grid strong { font-size: 12px; }
+  .service-landing .assurance-grid span { font-size: 10px; }
+  .service-landing .comfort-grid { gap: 60px; }
+  .service-landing .service-process-grid { gap: 23px; }
+  .service-dentures .hero-visual { margin-left: 0; }
+  .service-dentures .portrait-hero .hero-photo { height: 555px; }
+  .service-dentures .denture-option { padding: 27px; }
+  .service-dentures .service-photo-label strong { font-size: 24px; }
+  .service-dentures .service-photo-label div > span { font-size: 14px; }
+  .service-dentures .assurance-grid strong { font-size: 15px; }
+  .service-dentures .assurance-grid span { font-size: 13px; }
+  .service-dentures .visit-card h3 { font-size: 22px; }
+  .service-dentures .visit-card table { font-size: 14px; }
+  .service-dentures .service-process-grid { grid-template-columns: 1fr 1fr; gap: 33px 40px; }
+  .service-crowns .cerec-heading-row { gap: 40px; }
+  .service-crowns .cerec-heading-row > p { max-width: 330px; }
+  .service-crowns .cerec-caveat { gap: 26px; padding: 25px; }
+  .service-crowns .cerec-caveat .ppc-call { padding-inline: 20px; }
+  .service-crowns .lab-grid { gap: 65px; }
+  .service-kids .first-visit-grid { gap: 17px; }
+  .service-kids .first-visit-grid li { padding: 24px 20px; }
+  .service-kids .first-visit-grid h3 { font-size: 23px; }
+  .service-kids .nervous-grid { gap: 70px; }
+}
+@media (max-width: 860px) {
+  .service-landing .service-hero { padding-top: 42px; }
+  .service-landing h1 { font-size: 46px; }
+  .service-landing .hero-lede { font-size: 16px; }
+  .service-landing .hero-expectation { font-size: 12px; }
+  .service-landing .hero-badges li { font-size: 11px; }
+  .service-landing .hero-photo { height: 515px; }
+  .service-landing .hero-badges { margin-top: 18px; }
+  .service-landing .service-photo-icon { width: 35px; height: 35px; }
+  .service-landing .service-photo-label { padding: 17px 14px; left: -5px; gap: 10px; }
+  .service-landing .service-photo-label strong { font-size: 17px; }
+  .service-landing .service-photo-label div > span { font-size: 10px; }
+  .service-landing .assurance-grid { gap: 20px; }
+  .service-landing .assurance-grid > div { flex-direction: column; align-items: start; gap: 12px; }
+  .service-landing .assurance-grid > div + div { padding-left: 20px; }
+  .service-landing .assurance-grid strong { font-size: 12px; }
+  .service-landing .assurance-grid span { font-size: 11px; }
+  .service-landing .service-card-grid { grid-template-columns: 1fr 1fr; }
+  .service-landing .comfort-grid { gap: 40px; }
+  .service-landing .comfort-photo > img { height: 490px; }
+  .service-landing .comfort-photo-caption { left: 0; right: -8px; padding: 18px; gap: 12px; }
+  .service-landing .comfort-photo-caption > span { font-size: 13px; }
+  .service-landing .review-card { padding: 26px; }
+  .service-landing .service-section-heading { margin-bottom: 34px; }
+  .service-landing .service-section-heading > p:not(.eyebrow) { font-size: 15px; }
+  .service-landing .payment-options { padding-inline: 22px; }
+  .service-landing .faq-grid { grid-template-columns: 1fr; gap: 25px; }
+  .service-landing .faq-section { padding-top: 60px; }
+  .service-dentures .hero-lede { font-size: 17px; }
+  .service-dentures .hero-expectation { font-size: 15px; }
+  .service-dentures .hero-badges li { font-size: 14px; }
+  .service-dentures .hero-cta .ppc-call.ppc-call--button { font-size: 16px; padding-inline: 18px; }
+  .service-dentures .service-section-heading > p:not(.eyebrow) { font-size: 17px; }
+  .service-dentures .assurance-grid strong { font-size: 15px; }
+  .service-dentures .assurance-grid span { font-size: 13px; }
+  .service-dentures .denture-option { padding: 25px; }
+  .service-dentures .denture-option h3 { font-size: 29px; }
+  .service-dentures .option-tag { font-size: 10px; letter-spacing: 1px; }
+  .service-dentures .option-consideration { padding: 15px; }
+  .service-dentures .service-photo-label strong { font-size: 22px; }
+  .service-dentures .service-photo-label div > span { font-size: 12px; }
+  .service-dentures .service-photo-label { gap: 10px; }
+  .service-dentures .ppc-call.ppc-call--text { font-size: 16px; }
+  .service-dentures .payment-grid, .service-dentures .contact-grid { grid-template-columns: 1fr; gap: 35px; }
+  .service-dentures .payment-intro { max-width: 600px; }
+  .service-dentures .visit-card { max-width: 520px; width: 100%; }
+  .service-dentures .visit-card table { font-size: 16px; }
+  .service-dentures .visit-card h3 { font-size: 25px; }
+  .service-crowns .cerec-hero-badge { right: -9px; top: 30px; padding: 18px; }
+  .service-crowns .cerec-hero-badge strong { font-size: 22px; }
+  .service-crowns .cerec-steps { grid-template-columns: 1fr 1fr; gap: 35px; }
+  .service-crowns .cerec-heading-row > p { font-size: 14px; max-width: 260px; }
+  .service-crowns .cerec-caveat { flex-direction: column; align-items: start; gap: 20px; }
+  .service-crowns .cerec-caveat .ppc-call { margin-left: 43px; }
+  .service-crowns .lab-grid { gap: 40px; }
+  .service-kids .kids-hero-note { width: 120px; height: 120px; top: 35px; right: -12px; }
+  .service-kids .kids-hero-note span { font-size: 13px; }
+  .service-kids .first-visit-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .service-kids .first-visit-callout { gap: 28px; }
+  .service-kids .first-visit-callout .ppc-call { padding-inline: 18px; font-size: 13px; }
+  .service-kids .first-visit-callout p { font-size: 13px; }
+  .service-kids .nervous-grid { gap: 42px; }
+  .service-kids .nervous-points > div { padding-left: 40px; }
+  .service-kids .nervous-points h3 { font-size: 22px; }
+}
+@media (max-width: 640px) {
+  .service-landing { --service-body: 15px; --service-small: 14px; --service-fine: 12px; }
+  .service-landing .service-hero { padding-top: 32px; }
+  .service-landing .hero-copy { padding: 0; }
+  .service-landing h1 { font-size: clamp(40px, 11.2vw, 60px); }
+  .service-landing .hero-grid { gap: 29px; }
+  .service-landing .hero-lede { font-size: 16px; }
+  .service-landing .hero-expectation { font-size: 12px; margin-top: 13px; }
+  .service-landing .hero-badges { gap: 8px; margin-top: 19px; }
+  .service-landing .hero-badges li { font-size: 12px; }
+  .service-landing .service-hero-visual { margin: 0 8px; padding-bottom: 34px; }
+  .service-landing .hero-photo { height: 345px; }
+  .service-landing .service-photo-label { left: -8px; right: 7px; bottom: 0; padding: 17px; gap: 12px; }
+  .service-landing .service-photo-label strong { font-size: 18px; }
+  .service-landing .service-photo-label div > span { font-size: 11px; }
+  .service-landing .service-photo-icon { width: 37px; height: 37px; }
+  .service-landing .service-photo-icon svg { width: 21px; height: 21px; }
+  .service-landing .hero-footnote { padding-block: 27px 24px; }
+  .service-landing .service-assurance { padding-block: 25px; }
+  .service-landing .assurance-grid { grid-template-columns: 1fr; gap: 20px; }
+  .service-landing .assurance-grid > div { flex-direction: row; align-items: center; gap: 17px; }
+  .service-landing .assurance-grid > div + div { border: 0; padding: 0; }
+  .service-landing .assurance-grid strong { font-size: 13px; }
+  .service-landing .assurance-grid span { font-size: 12px; }
+  .service-landing .assurance-grid svg { width: 24px; height: 24px; }
+  .service-landing .service-section-heading { text-align: left; margin-bottom: 29px; }
+  .service-landing .service-section-heading h2 { font-size: 35px; }
+  .service-landing .service-section-heading > p:not(.eyebrow) { font-size: 15px; margin-top: 20px; }
+  .service-landing .service-card-grid { grid-template-columns: 1fr; gap: 15px; }
+  .service-landing .service-card { padding: 26px 24px 20px; }
+  .service-landing .service-card > p { font-size: 14px; margin-top: 13px; }
+  .service-landing .service-card h3 { font-size: 27px; }
+  .service-landing .service-card-icon { margin-bottom: 19px; }
+  .service-landing .service-card .ppc-call { font-size: 14px; }
+  .service-landing .service-process-grid { grid-template-columns: 1fr; gap: 28px; }
+  .service-landing .process-index { font-size: 32px; padding-bottom: 15px; margin-bottom: 18px; }
+  .service-landing .service-process-grid h3 { font-size: 26px; }
+  .service-landing .service-process-grid p { margin-top: 13px; }
+  .service-landing .process-bottom { flex-direction: column; align-items: stretch; gap: 21px; margin-top: 27px; padding-top: 25px; }
+  .service-landing .process-bottom .ppc-call { width: 100%; }
+  .service-landing .comfort-grid { grid-template-columns: 1fr; gap: 38px; }
+  .service-landing .comfort-photo { padding-bottom: 33px; }
+  .service-landing .comfort-photo > img { height: 350px; }
+  .service-landing .comfort-photo-caption { left: 15px; right: 0; padding: 21px; }
+  .service-landing .comfort-photo-caption > span { font-size: 13px; }
+  .service-landing .review-grid-pair { grid-template-columns: 1fr; gap: 18px; }
+  .service-landing .review-card { padding: 27px 24px; }
+  .service-landing .review-card blockquote { font-size: var(--service-body); }
+  .service-landing .payment-options { padding-inline: 22px; }
+  .service-landing .faq-section { padding-top: 53px; }
+  .service-landing .faq-list summary { font-size: 15px; }
+  .service-landing .faq-answer { font-size: 14px; }
+  .service-landing .service-disclosure { font-size: 11px; }
+  .service-dentures { --service-body: 17px; --service-small: 16px; --service-fine: 14px; }
+  .service-dentures .hero-lede { font-size: 17px; }
+  .service-dentures .hero-expectation { font-size: 15px; }
+  .service-dentures .hero-badges li { font-size: 14px; }
+  .service-dentures .hero-cta .ppc-call.ppc-call--button { font-size: 18px; }
+  .service-dentures .header-actions .ppc-call.ppc-call--button { font-size: 13px; min-height: 46px; padding: 12px; }
+  .service-dentures .hero-visual { margin-left: 8px; }
+  .service-dentures .portrait-hero .hero-photo { height: 389px; border-width: 10px; border-radius: 180px 180px 20px 20px; }
+  .service-dentures .service-photo-label { padding: 20px; right: 0; left: -8px; }
+  .service-dentures .service-photo-label strong { font-size: 23px; }
+  .service-dentures .service-photo-label div > span { font-size: 13px; }
+  .service-dentures .assurance-grid strong { font-size: 16px; }
+  .service-dentures .assurance-grid span { font-size: 14px; }
+  .service-dentures .service-section-heading > p:not(.eyebrow) { font-size: 17px; }
+  .service-dentures .denture-options-grid { grid-template-columns: 1fr; gap: 20px; }
+  .service-dentures .denture-option { padding: 27px 24px; }
+  .service-dentures .denture-option h3 { font-size: 32px; }
+  .service-dentures .option-top { margin-bottom: 24px; }
+  .service-dentures .option-tag { font-size: 10px; }
+  .service-dentures .option-consideration p { font-size: 16px; }
+  .service-dentures .ppc-call.ppc-call--text { font-size: 17px; }
+  .service-dentures .options-help { align-items: start; gap: 13px; }
+  .service-dentures .options-help svg { margin-top: 5px; }
+  .service-dentures .service-process-grid { grid-template-columns: 1fr; gap: 28px; }
+  .service-dentures .faq-list summary { font-size: 18px; }
+  .service-dentures .faq-answer { font-size: 17px; }
+  .service-dentures .visit-card { padding: 25px 23px 13px; }
+  .service-dentures .visit-card h3 { font-size: 24px; }
+  .service-dentures .visit-card table { font-size: 14px; }
+  .service-dentures .footer-top > a { font-size: 12px; }
+  .service-dentures .service-disclosure { font-size: 13px; }
+  .service-dentures .mobile-call-bar strong { font-size: 12px; }
+  .service-dentures .mobile-call-bar div > span { font-size: 10px; }
+  .service-dentures .mobile-call-bar .ppc-call.ppc-call--button { min-height: 50px; font-size: 16px; padding-inline: 15px; }
+  .service-crowns .cerec-hero-badge { right: -5px; top: 24px; padding: 18px; }
+  .service-crowns .cerec-hero-badge > span { font-size: 10px; }
+  .service-crowns .cerec-hero-badge strong { font-size: 20px; }
+  .service-crowns .cerec-heading-row { display: block; margin-bottom: 34px; }
+  .service-crowns .cerec-heading-row > p { margin-top: 22px; max-width: none; font-size: 15px; }
+  .service-crowns .cerec-steps { grid-template-columns: 1fr; gap: 29px; }
+  .service-crowns .cerec-step-top { margin-bottom: 19px; }
+  .service-crowns .cerec-steps h3 { font-size: 28px; }
+  .service-crowns .cerec-steps p { font-size: 15px; margin-top: 12px; }
+  .service-crowns .cerec-caveat { padding: 25px 22px; margin-top: 30px; }
+  .service-crowns .cerec-caveat > div { flex-direction: column; gap: 15px; }
+  .service-crowns .cerec-caveat h3 { font-size: 16px; }
+  .service-crowns .cerec-caveat p { font-size: 14px; }
+  .service-crowns .cerec-caveat .ppc-call { margin: 0; width: 100%; font-size: 14px; }
+  .service-crowns .lab-grid { grid-template-columns: 1fr; gap: 31px; }
+  .service-crowns .lab-grid > div > p:not(.eyebrow) { font-size: 15px; margin-top: 22px; }
+  .service-crowns .lab-steps { border-top: 1px solid #bfcdc4; padding-top: 26px; }
+  .service-crowns .lab-steps h3 { font-size: 24px; }
+  .service-kids .kids-hero-note { width: 112px; height: 112px; right: -7px; top: 28px; gap: 5px; }
+  .service-kids .kids-hero-note svg { width: 25px; height: 25px; }
+  .service-kids .kids-hero-note span { font-size: 12px; }
+  .service-kids .first-visit-grid { grid-template-columns: 1fr; gap: 17px; }
+  .service-kids .first-visit-grid li { padding: 27px 25px; }
+  .service-kids .first-visit-grid h3 { font-size: 27px; }
+  .service-kids .first-visit-grid p { font-size: 15px; }
+  .service-kids .first-visit-callout { flex-direction: column; align-items: stretch; gap: 22px; padding-top: 0; margin-top: 25px; }
+  .service-kids .first-visit-callout > div { align-items: start; gap: 13px; }
+  .service-kids .first-visit-callout > div > svg { margin-top: 4px; }
+  .service-kids .first-visit-callout p { font-size: 14px; }
+  .service-kids .first-visit-callout .ppc-call { font-size: 15px; }
+  .service-kids .nervous-grid { grid-template-columns: 1fr; gap: 37px; }
+  .service-kids .nervous-grid > div > p:not(.eyebrow) { font-size: 15px; }
+  .service-kids .nervous-grid > div > .ppc-call { width: 100%; }
+  .service-kids .nervous-points h3 { font-size: 24px; }
+  .service-kids .nervous-points p { font-size: 15px; }
+}
+@media (max-width: 360px) {
+  .service-landing h1 { font-size: 38px; }
+  .service-landing .service-photo-label { padding: 16px 13px; gap: 10px; }
+  .service-landing .service-photo-label strong { font-size: 16px; }
+  .service-landing .service-section-heading h2 { font-size: 32px; }
+  .service-dentures .header-actions .ppc-call.ppc-call--button { font-size: 12px; padding-inline: 9px; }
+  .service-dentures .hero-cta .ppc-call.ppc-call--button { padding-inline: 16px; font-size: 17px; }
+  .service-dentures .denture-option { padding-inline: 20px; }
+  .service-dentures .denture-option h3 { font-size: 29px; }
+  .service-dentures .denture-option > .ppc-call { font-size: 16px; }
+  .service-dentures .service-photo-label strong { font-size: 21px; }
+  .service-dentures .service-photo-label div > span { font-size: 12px; }
+  .service-dentures .mobile-call-bar strong { font-size: 11px; }
+  .service-dentures .mobile-call-bar div > span { font-size: 9px; }
+  .service-dentures .mobile-call-bar .ppc-call.ppc-call--button { font-size: 15px; padding-inline: 13px; }
+  .service-dentures .visit-card table { font-size: 13px; }
+  .service-dentures .visit-card h3 { font-size: 21px; }
+  .service-kids .kids-hero-note { width: 104px; height: 104px; }
+}

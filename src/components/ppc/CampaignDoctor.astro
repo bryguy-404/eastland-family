@@ -1,0 +1,7 @@
+---
+import Icon from "./PpcIcon.astro";
+import CallLink from "./CallLink.astro";
+interface Props { heading: string; accent: string; body: string; points: { title: string; body: string }[]; }
+const { heading, accent, body, points } = Astro.props;
+---
+<section class="team-section campaign-section" aria-labelledby="team-heading"><div class="campaign-wrap team-grid"><div class="doctor-visual"><div class="doctor-photo-frame"><img src="/images/team/glenn-ashworth.webp" alt="Dr. Glenn Ashworth, general dentist at Eastland Family Dental" width="500" height="500" loading="lazy" decoding="async" /></div><div class="doctor-label"><span class="doctor-label-icon"><Icon name="tooth" /></span><div><strong>Dr. Glenn Ashworth</strong><span>General dentist · Air Force veteran</span></div></div></div><div class="team-copy"><p class="eyebrow">GET TO KNOW YOUR DENTIST</p><h2 id="team-heading">{heading}<br /><em>{accent}</em></h2><p>{body}</p><div class="care-principles">{points.map((point) => <div><Icon name="check" /><div><h3>{point.title}</h3><p>{point.body}</p></div></div>)}</div><CallLink location="doctor" label="Talk with our team" variant="text" /></div></div></section>

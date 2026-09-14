@@ -1,0 +1,191 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CallLink from "../../components/ppc/CallLink.astro";
+import Icon from "../../components/ppc/PpcIcon.astro";
+import { practice } from "../../lib/practice";
+import { familyHero, familyStages, familyReviews, familyFaqs } from "../../lib/ppc-family";
+import "../../styles/ppc-family.css";
+
+const benefits = [
+  { icon: "people", title: "One practice. Your family.", text: "Care for children & adults" },
+  { icon: "clock", title: "A head start on your day", text: "Appointments from 7:00 AM" },
+  { icon: "heart", title: "A little more understanding", text: "Comfort options available" },
+  { icon: "pin", title: "Right here in Independence", text: "On East US Highway 40" },
+] as const;
+
+const steps = [
+  { title: "Tell us about your family", body: "Who's due for a cleaning? Who has a question or concern? We will help you work out where to start." },
+  { title: "Ask about coordinating visits", body: "Let us know your preferred days and ask about grouping appointments. We will explore what the schedule allows." },
+  { title: "Know your next step", body: "Discuss appointment availability, what to bring, and how to check your insurance benefits before your visit." },
+];
+---
+
+<BaseLayout
+  title="Family Dentist in Independence, MO | Eastland Family Dental"
+  description="A dental home for children, parents, and grandparents in Independence, MO. Explore family care and call Eastland Family Dental at (816) 795-7007."
+  canonical="https://www.eastlandfamilydental.com/ppc/family/"
+  image="/images/story-family-dentistry.jpg"
+  noindex
+>
+  <div class="family-landing">
+    <header class="campaign-header">
+      <div class="campaign-wrap header-inner">
+        <div class="campaign-brand" aria-label="Eastland Family Dental">
+          <img src="/images/eastland-logo.png" alt="" width="64" height="64" />
+          <div><strong>Eastland</strong><span>FAMILY DENTAL</span></div>
+        </div>
+        <div class="header-actions">
+          <div class="header-hours"><span>Let's find a time for your family</span><strong>Mon–Thu · 7:00 AM–4:30 PM</strong></div>
+          <CallLink location="header-button" label={practice.phoneDisplay} />
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="campaign-hero" aria-labelledby="family-heading">
+        <div class="campaign-wrap hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="location-dot" aria-hidden="true"></span> FAMILY DENTIST IN INDEPENDENCE, MO</p>
+            <h1 id="family-heading"><span id="family-heading-main">{familyHero.heading}</span><em id="family-heading-accent">{familyHero.accent}</em></h1>
+            <p id="family-hero-body" class="hero-lede">{familyHero.body}</p>
+            <div class="hero-cta">
+              <CallLink location="hero-primary" label="Call to schedule your family" />
+              <span>Let's talk about what works for you.</span>
+            </div>
+            <div class="hero-team">
+              <div class="team-avatars" aria-hidden="true">
+                <img src="/images/team/glenn-ashworth.webp" alt="" width="46" height="46" />
+                <img src="/images/team/rebecca.webp" alt="" width="46" height="46" />
+                <img src="/images/team/jessica.webp" alt="" width="46" height="46" />
+              </div>
+              <p><strong>Real people. Personal care.</strong><span>Meet Dr. Ashworth and the Eastland team.</span></p>
+            </div>
+          </div>
+          <div class="hero-visual">
+            <div class="hero-orbit" aria-hidden="true"></div>
+            <img class="hero-photo" src="/images/story-family-dentistry.jpg" alt="A child shares a high five during a dental visit" width="1800" height="1200" loading="eager" fetchpriority="high" decoding="async" />
+            <div class="photo-note"><Icon name="heart" /><span>Little smiles.<br /><strong>Big high fives.</strong></span></div>
+            <div class="early-card"><span class="early-card-icon"><Icon name="clock" /></span><div><strong>Early birds welcome.</strong><span>Appointments start at 7:00 AM</span></div></div>
+          </div>
+        </div>
+        <div class="hero-footnote campaign-wrap"><span class="fine-line" aria-hidden="true"></span><p>Healthy smiles, cared for gently.</p><span class="fine-line" aria-hidden="true"></span></div>
+      </section>
+
+      <section class="benefit-strip" aria-label="Family care at Eastland">
+        <div class="campaign-wrap benefit-grid">
+          {benefits.map((benefit) => <div class="benefit"><Icon name={benefit.icon} /><div><h2>{benefit.title}</h2><p>{benefit.text}</p></div></div>)}
+        </div>
+      </section>
+
+      <section class="family-care campaign-section" id="family-care" aria-labelledby="care-heading">
+        <div class="campaign-wrap">
+          <div class="section-intro">
+            <div><p class="eyebrow">A DENTAL HOME THAT GROWS WITH YOU</p><h2 id="care-heading">Different ages.<br /><em>The same thoughtful care.</em></h2></div>
+            <p>From building healthy habits to restoring a smile, find care for your household in one familiar place.</p>
+          </div>
+          <div class="stage-grid">
+            {familyStages.map((stage, index) => <article class="stage-card">
+              <div class="stage-top"><span class={`stage-icon stage-icon-${index}`}><Icon name={stage.icon} /></span><span class="stage-number">0{index + 1}</span></div>
+              <p class="stage-label">{stage.label}</p><h3>{stage.title}</h3><p class="stage-description">{stage.description}</p>
+              <ul>{stage.services.map((service) => <li><Icon name="check" />{service}</li>)}</ul>
+            </article>)}
+          </div>
+          <div class="section-bottom"><p>Not sure where to start? That's what we're here for.</p><CallLink location="family-care" label="Talk with our team" variant="text" /></div>
+        </div>
+      </section>
+
+      <section class="scheduling-section campaign-section" id="family-scheduling" aria-labelledby="scheduling-heading">
+        <div class="campaign-wrap scheduling-grid">
+          <div class="scheduling-copy"><p class="eyebrow">FOR THE PERSON WHO PLANS EVERYTHING</p><h2 id="scheduling-heading">A full calendar.<br /><em>A simpler next step.</em></h2><p>Between school, work, and everything else, there's a lot to coordinate. Start with one conversation about the care your family needs.</p><CallLink location="family-scheduling" label="Let's plan your family's visits" /></div>
+          <ol class="scheduling-steps">{steps.map((step, index) => <li><span class="step-number">0{index + 1}</span><div><h3>{step.title}</h3><p>{step.body}</p></div></li>)}</ol>
+        </div>
+      </section>
+
+      <section class="team-section campaign-section" aria-labelledby="team-heading">
+        <div class="campaign-wrap team-grid">
+          <div class="doctor-visual">
+            <div class="doctor-photo-frame"><img src="/images/team/glenn-ashworth.webp" alt="Dr. Glenn Ashworth, dentist at Eastland Family Dental" width="500" height="500" loading="lazy" decoding="async" /></div>
+            <div class="doctor-label"><span class="doctor-label-icon"><Icon name="tooth" /></span><div><strong>Dr. Glenn Ashworth</strong><span>Your dentist at Eastland</span></div></div>
+            <span class="doctor-detail" aria-hidden="true">A familiar face.<br />A fresh start.</span>
+          </div>
+          <div class="team-copy"><p class="eyebrow">THE PEOPLE BEHIND YOUR SMILE</p><h2 id="team-heading">Come as you are.<br /><em>We'll start there.</em></h2><p>Been a while? Feeling nervous? Dr. Ashworth and our team make space for your questions, explain your options, and help you take the next step.</p>
+            <div class="care-principles">
+              <div><Icon name="heart" /><div><h3>Comfort is part of the conversation</h3><p>Ask about nitrous oxide and other comfort options appropriate for your care.</p></div></div>
+              <div><Icon name="sparkle" /><div><h3>Modern care, explained simply</h3><p>Digital imaging and same-day CEREC crowns, with time to understand your treatment.</p></div></div>
+            </div>
+            <CallLink location="team-comfort" label="Talk to us about your visit" variant="text" />
+          </div>
+        </div>
+      </section>
+
+      <section class="reviews-section campaign-section" aria-labelledby="reviews-heading">
+        <div class="campaign-wrap">
+          <div class="review-heading"><div><p class="eyebrow">IN OUR PATIENTS' WORDS</p><h2 id="reviews-heading">It's the little things<br /><em>that stay with you.</em></h2></div><p>A warm welcome. A clear explanation.<br />Here's what patients shared on Google.</p></div>
+          <div class="review-grid">{familyReviews.map((review) => <figure class="review-card"><span class="quote-mark" aria-hidden="true">“</span><blockquote>{review.quote}</blockquote><figcaption><span class="review-avatar" aria-hidden="true">{review.initial}</span><div><strong>{review.name}</strong><span>Google review</span></div><span class="google-letter" aria-hidden="true">G</span></figcaption></figure>)}</div>
+        </div>
+      </section>
+
+      <section class="payment-section campaign-section" aria-labelledby="payment-heading">
+        <div class="campaign-wrap payment-grid">
+          <div><p class="eyebrow">LET'S TALK ABOUT THE PRACTICAL PART</p><h2 id="payment-heading">Care for your family.<br /><em>Clarity on your options.</em></h2><p class="payment-intro">Bring your insurance questions to the conversation. Our team can explain next steps for checking benefits and discuss payment options.</p><CallLink location="insurance" label="Call about coverage & payment" variant="text" /></div>
+          <div class="payment-options">
+            <div><span class="payment-icon"><Icon name="card" /></span><div><h3>Flexible ways to pay</h3><p>Cash, personal checks, debit, and most major credit cards.</p></div></div>
+            <div><span class="payment-icon"><Icon name="calendar" /></span><div><h3>CareCredit financing</h3><p>Available for qualifying patients. Ask about financing for your treatment plan.</p></div></div>
+            <div><span class="payment-icon"><Icon name="heart" /></span><div><h3>Medicaid for sedation dentistry</h3><p>Eligibility and benefits are verified before treatment. Call to discuss your needs.</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section campaign-section" aria-labelledby="faq-heading">
+        <div class="campaign-wrap faq-grid">
+          <div><p class="eyebrow">A FEW THINGS YOU MIGHT BE WONDERING</p><h2 id="faq-heading">Good questions.<br /><em>Clear answers.</em></h2><p>Have something else on your mind?<br />We're happy to talk.</p><CallLink location="faq" label={practice.phoneDisplay} variant="text" /></div>
+          <div class="faq-list">{familyFaqs.map((faq) => <details><summary>{faq.question}<span class="faq-toggle"><Icon name="plus" /></span></summary><div class="faq-answer"><p>{faq.answer}</p></div></details>)}</div>
+        </div>
+      </section>
+
+      <section class="contact-section" aria-labelledby="contact-heading">
+        <div class="campaign-wrap contact-grid">
+          <div class="contact-copy"><p class="eyebrow">YOUR FAMILY'S NEXT CHAPTER STARTS HERE</p><h2 id="contact-heading">Let's make room<br /><em>for your smile.</em></h2><p>Call Eastland Family Dental to talk about appointments for your family.</p><CallLink location="final-call" label={`Call ${practice.phoneDisplay}`} /><div class="contact-location"><Icon name="pin" /><p><strong>Eastland Family Dental</strong>{practice.address.street}<br />{practice.address.cityStateZip}</p></div><p class="service-area">Welcoming families from Independence, Blue Springs, Lee's Summit, and surrounding communities.</p></div>
+          <div class="visit-card"><div class="visit-card-heading"><Icon name="clock" /><h3>A good day starts early.</h3></div><table><caption>Office hours</caption><tbody>{practice.hours.map((row) => <tr><th scope="row">{row.days}</th><td>{row.hours}</td></tr>)}</tbody></table><div class="map-frame"><iframe title="Location of Eastland Family Dental in Independence, MO" src="https://maps.google.com/maps?q=19401%20East%20US%20Highway%2040%20Ste%20180%2C%20Independence%2C%20MO%2064055&t=m&z=14&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div><a class="directions-link" href={practice.mapsUrl} target="_blank" rel="noopener noreferrer">Get directions<Icon name="arrow" /></a></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="campaign-footer"><div class="campaign-wrap"><div class="footer-top"><div class="campaign-brand"><img src="/images/eastland-logo.png" alt="" width="48" height="48" loading="lazy" /><div><strong>Eastland</strong><span>FAMILY DENTAL</span></div></div><p>Healthy smiles, cared for gently.</p><a href="/">Visit our main website <span aria-hidden="true">↗</span></a></div><div class="footer-bottom"><p>© {new Date().getFullYear()} Eastland Family Dental</p><p>General family dentistry. Treatment recommendations and appointment availability vary by patient.</p></div></div></footer>
+
+    <div class="mobile-call-bar" role="region" aria-label="Call Eastland Family Dental"><div><strong>Let's talk about your family.</strong><span>Mon–Thu · 7:00 AM–4:30 PM</span></div><CallLink location="sticky-mobile" label="Call now" /></div>
+  </div>
+</BaseLayout>
+
+<script>
+  import { familyKeywordVariants } from "../../lib/ppc-family";
+
+  const keyword = new URLSearchParams(window.location.search).get("kw");
+  if (keyword && Object.hasOwn(familyKeywordVariants, keyword)) {
+    const copy = familyKeywordVariants[keyword];
+    const heading = document.getElementById("family-heading-main");
+    const accent = document.getElementById("family-heading-accent");
+    const body = document.getElementById("family-hero-body");
+    if (heading) heading.textContent = copy.heading;
+    if (accent) accent.textContent = copy.accent;
+    if (body) body.textContent = copy.body;
+  }
+
+  // One dataLayer event per activation. The existing site GTM container handles delivery.
+  // Do not also call gtag: doing both can count the same click twice.
+  // A phone click is an intent signal, not evidence of a connected or qualified call.
+  const analyticsWindow = window as typeof window & { dataLayer?: Record<string, unknown>[] };
+  document.querySelectorAll<HTMLAnchorElement>(".family-landing [data-call-location]").forEach((link) => {
+    link.addEventListener("click", () => {
+      try {
+        analyticsWindow.dataLayer = analyticsWindow.dataLayer || [];
+        analyticsWindow.dataLayer.push({
+          event: "phone_call_click",
+          call_location: link.dataset.callLocation,
+          phone_number: link.getAttribute("href")?.replace("tel:", ""),
+          landing_page: "family",
+        });
+      } catch { /* A blocked analytics tool must never prevent the phone link working. */ }
+    });
+  });
+</script>

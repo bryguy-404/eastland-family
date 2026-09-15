@@ -1,0 +1,289 @@
+/* Shared design from the five September 2026 insurance briefs. */
+.efdi, .efdi *, .efdi *::before, .efdi *::after { box-sizing:border-box; margin:0; padding:0; }
+.efdi {
+  --navy:#023a66; --navy-d:#012a4b; --blue:#0874bf; --blue-h:#0b66ab;
+  --porcelain:#fffdf8; --sand:#efe6d7; --sand-d:#e3d5bf; --powder:#edf3f6;
+  --air:#e4f4fe; --euc:#7d9a94; --ink:#023a66; --body:#475569; --caption:#64748b;
+  --line:#e2e8f0; --line-2:#cfdae3; --star:#f0a830; --green:#157f4a;
+  --sh:0 1px 2px rgba(2,58,102,.04),0 4px 16px rgba(2,58,102,.07);
+  --sh-md:0 2px 6px rgba(2,58,102,.06),0 10px 30px rgba(2,58,102,.10);
+  --sh-lg:0 6px 14px rgba(2,58,102,.08),0 22px 50px rgba(2,58,102,.14);
+  --sh-cta:0 4px 14px rgba(15,127,211,.32);
+  --r:16px; --r-lg:24px; --r-xl:32px; --pill:999px;
+  --fh:Georgia,'Times New Roman',Times,serif;
+  --fb:'Inter',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  font-family:var(--fb); font-size:16.5px; color:var(--body); background:var(--porcelain);
+  line-height:1.62; -webkit-font-smoothing:antialiased; padding-bottom:calc(86px + env(safe-area-inset-bottom));
+}
+@media (min-width:861px){ .efdi{ padding-bottom:0; } }
+.efdi img{ max-width:100%; height:auto; display:block; }
+.efdi a{ color:inherit; text-decoration:none; }
+.efdi h1,.efdi h2,.efdi h3,.efdi h4{ font-family:var(--fh); color:var(--ink); font-weight:400; line-height:1.15; letter-spacing:-.01em; }
+.efdi strong{ font-weight:600; color:var(--ink); }
+.efdi ul{ list-style:none; }
+.efdi-wrap{ width:100%; max-width:1160px; margin:0 auto; padding:0 20px; }
+.efdi-narrow{ max-width:880px; }
+@media (min-width:861px){ .efdi-wrap{ padding:0 32px; } }
+.efdi-sec{ padding:56px 0; }
+@media (min-width:861px){ .efdi-sec{ padding:86px 0; } }
+
+/* BUTTONS — colors scoped `.efdi .efdi-btn-*`: `.efdi a { color:inherit }`
+   is (0,1,1) and would beat a single-class rule at (0,1,0). Do not simplify. */
+.efdi-btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  font-family:var(--fb); font-weight:600; font-size:17.5px; line-height:1.2;
+  padding:18px 30px; border-radius:var(--pill); border:2px solid transparent; cursor:pointer;
+  text-align:center; transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
+  -webkit-tap-highlight-color:transparent; }
+.efdi-btn svg{ width:19px; height:19px; flex:none; }
+.efdi-btn:hover{ transform:translateY(-2px); }
+.efdi .efdi-btn-primary{ background:var(--blue); color:#fff; box-shadow:var(--sh-cta); }
+.efdi .efdi-btn-primary:hover{ background:var(--blue-h); box-shadow:0 8px 22px rgba(15,127,211,.42); }
+.efdi .efdi-btn-light{ background:#fff; color:var(--navy); box-shadow:var(--sh-md); }
+.efdi .efdi-btn-light:hover{ background:var(--air); }
+.efdi .efdi-btn-ghost{ background:transparent; color:#fff; border-color:rgba(255,255,255,.55); }
+.efdi .efdi-btn-ghost:hover{ background:rgba(255,255,255,.12); border-color:#fff; }
+.efdi-btn-lg{ font-size:19px; padding:20px 38px; }
+.efdi-btn-block{ display:flex; width:100%; }
+@media (min-width:561px){ .efdi-btn-block{ display:inline-flex; width:auto; } }
+.efdi-sub{ font-size:15px; color:var(--caption); margin-top:12px; }
+.efdi-sub strong{ color:var(--navy); }
+
+/* HEADER */
+.efdi-head{ position:sticky; top:0; z-index:90; background:rgba(255,253,248,.95);
+  backdrop-filter:saturate(180%) blur(12px); border-bottom:1px solid var(--line); }
+.efdi-head-in{ display:flex; align-items:center; justify-content:space-between; gap:16px; padding-top:12px; padding-bottom:12px; }
+.efdi-logo img{ height:54px; width:54px; }
+@media (min-width:861px){ .efdi-logo img{ height:66px; width:66px; } }
+.efdi-head-r{ display:flex; align-items:center; gap:18px; }
+.efdi .efdi-head-num{ display:none; font-family:var(--fh); font-size:23px; color:var(--navy); }
+.efdi .efdi-head-num span{ display:block; font-family:var(--fb); font-size:11.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--caption); font-weight:600; }
+@media (min-width:861px){ .efdi .efdi-head-num{ display:block; } }
+.efdi-head .efdi-btn{ padding:13px 23px; font-size:16px; }
+.efdi-cta-s{ display:inline; } .efdi-cta-l{ display:none; }
+@media (min-width:561px){ .efdi-cta-s{ display:none; } .efdi-cta-l{ display:inline; } }
+
+/* HERO */
+.efdi-hero{ position:relative; background:var(--navy); color:#fff; overflow:hidden; }
+.efdi-hero::before{ content:""; position:absolute; inset:0;
+  background:radial-gradient(1050px 470px at 84% -12%,rgba(15,127,211,.48),transparent 62%),
+             radial-gradient(740px 510px at -6% 106%,rgba(125,154,148,.30),transparent 60%),
+             linear-gradient(168deg,var(--navy) 0%,var(--navy-d) 100%); }
+.efdi-hero-in{ position:relative; z-index:2; padding:40px 0 48px; }
+@media (min-width:861px){ .efdi-hero-in{ padding:64px 0 76px; } }
+.efdi-hero-grid{ display:grid; grid-template-columns:1fr; gap:36px; align-items:center; }
+@media (min-width:981px){ .efdi-hero-grid{ grid-template-columns:1.05fr .95fr; gap:56px; } }
+.efdi-hero h1,.efdi-hero h2,.efdi-hero h3{ color:#fff; }
+.efdi-eyebrow{ display:inline-flex; align-items:center; gap:9px; max-width:100%; flex-wrap:wrap;
+  font-size:12.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--air);
+  background:rgba(228,244,254,.13); border:1px solid rgba(228,244,254,.26);
+  padding:8px 16px; border-radius:var(--pill); margin-bottom:20px; }
+.efdi-eyebrow svg{ width:15px; height:15px; flex:none; }
+@media (max-width:560px){ .efdi-eyebrow{ font-size:11.5px; letter-spacing:.06em; padding:8px 14px; } }
+.efdi-hero h1{ font-size:37px; margin-bottom:18px; letter-spacing:-.02em; }
+@media (min-width:561px){ .efdi-hero h1{ font-size:45px; } }
+@media (min-width:981px){ .efdi-hero h1{ font-size:54px; } }
+.efdi-hero h1 em{ display:block; font-style:normal; color:var(--air); font-size:.60em; letter-spacing:.005em; margin-top:12px; }
+.efdi-hero-lede{ font-size:18px; color:rgba(255,255,255,.88); max-width:565px; margin-bottom:27px; }
+@media (min-width:861px){ .efdi-hero-lede{ font-size:19.5px; } }
+.efdi-hero-cta{ display:flex; flex-direction:column; gap:12px; }
+@media (min-width:561px){ .efdi-hero-cta{ flex-direction:row; flex-wrap:wrap; align-items:center; } }
+.efdi-hero-trust{ display:flex; flex-wrap:wrap; gap:10px 23px; margin-top:27px; padding-top:24px; border-top:1px solid rgba(255,255,255,.16); }
+.efdi-hero-trust li{ display:flex; align-items:center; gap:9px; font-size:15px; color:rgba(255,255,255,.86); }
+.efdi-hero-trust svg{ width:17px; height:17px; color:var(--air); flex:none; }
+.efdi-card{ background:var(--porcelain); border-radius:var(--r-xl); padding:31px 27px; box-shadow:var(--sh-lg); text-align:center; }
+@media (min-width:861px){ .efdi-card{ padding:39px 35px; } }
+.efdi-hero .efdi-card h2,.efdi-hero .efdi-card h3{ color:var(--ink); }
+.efdi-card h2{ font-size:25px; margin-bottom:9px; }
+@media (min-width:861px){ .efdi-card h2{ font-size:28px; } }
+.efdi-card-note{ font-size:15.5px; color:var(--body); margin-bottom:22px; }
+.efdi .efdi-card-num{ display:block; font-family:var(--fh); font-size:39px; color:var(--navy); letter-spacing:-.01em; margin-bottom:5px; }
+@media (min-width:861px){ .efdi .efdi-card-num{ font-size:45px; } }
+.efdi .efdi-card-num:hover{ color:var(--blue); }
+.efdi-card-tap{ font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--caption); font-weight:600; margin-bottom:22px; }
+.efdi-card-rule{ height:1px; background:var(--line); margin:24px 0 20px; }
+.efdi-card-facts{ display:grid; gap:12px; text-align:left; }
+.efdi-card-facts li{ display:flex; gap:12px; align-items:flex-start; font-size:15px; color:var(--body); }
+.efdi-card-facts svg{ width:18px; height:18px; color:var(--blue); flex:none; margin-top:3px; }
+.efdi-hero .efdi-card-facts b{ color:var(--navy); font-weight:600; }
+
+/* TRUST BAR / SECTION HEADS / STARS */
+.efdi-stars{ display:inline-flex; gap:2px; }
+.efdi-stars svg{ width:17px; height:17px; color:var(--star); }
+.efdi-trustbar{ background:var(--sand); border-bottom:1px solid var(--sand-d); }
+.efdi-tb-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:23px 16px; padding:31px 0; }
+@media (min-width:861px){ .efdi-tb-grid{ grid-template-columns:repeat(4,1fr); padding:35px 0; } }
+.efdi-tb{ text-align:center; }
+.efdi-tb-ico{ width:41px; height:41px; margin:0 auto 10px; color:var(--navy); }
+.efdi-tb-ico svg{ width:100%; height:100%; }
+.efdi-tb b{ display:block; font-family:var(--fh); font-size:17.5px; color:var(--navy); font-weight:400; margin-bottom:3px; }
+.efdi-tb span{ display:block; font-size:14px; color:var(--body); line-height:1.45; }
+.efdi-sh{ text-align:center; max-width:730px; margin:0 auto 41px; }
+.efdi-sh-eye{ font-size:12.5px; font-weight:600; letter-spacing:.11em; text-transform:uppercase; color:var(--blue); margin-bottom:12px; }
+.efdi-sh h2{ font-size:31px; margin-bottom:14px; }
+@media (min-width:861px){ .efdi-sh h2{ font-size:41px; } }
+.efdi-sh p{ font-size:17.5px; color:var(--body); }
+
+/* NETWORK STATUS BLOCK */
+.efdi-status{ background:#fff; border:2px solid var(--navy); border-radius:var(--r-xl); padding:30px 26px; box-shadow:var(--sh-lg); max-width:900px; margin:0 auto; }
+@media (min-width:861px){ .efdi-status{ padding:40px 44px; } }
+.efdi-status-tag{ display:inline-flex; align-items:center; gap:8px; margin-bottom:16px; background:var(--navy); color:#fff; font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; padding:7px 16px; border-radius:var(--pill); }
+.efdi-status-tag svg{ width:14px; height:14px; }
+.efdi-status h2{ font-size:26px; margin-bottom:14px; }
+@media (min-width:861px){ .efdi-status h2{ font-size:33px; } }
+.efdi-status p{ font-size:16.5px; color:var(--body); margin-bottom:14px; }
+
+/* CHECKLIST GRID */
+.efdi-checks{ display:grid; grid-template-columns:1fr; gap:18px; }
+@media (min-width:641px){ .efdi-checks{ grid-template-columns:repeat(2,1fr); } }
+@media (min-width:1021px){ .efdi-checks{ grid-template-columns:repeat(4,1fr); } }
+.efdi-check{ background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); padding:26px 24px; box-shadow:var(--sh); }
+.efdi-check-ico{ width:46px; height:46px; border-radius:13px; background:var(--air); color:var(--navy); display:flex; align-items:center; justify-content:center; margin-bottom:15px; }
+.efdi-check-ico svg{ width:24px; height:24px; }
+.efdi-check h3{ font-size:19px; margin-bottom:8px; }
+.efdi-check p{ font-size:15px; color:var(--body); }
+
+/* BANDS / CARDS / REVIEWS / SPLIT / PAY / AREAS / FAQ / CONTACT / FOOTER / STICKY */
+.efdi-band{ background:var(--navy); color:#fff; position:relative; overflow:hidden; }
+.efdi-band::before{ content:""; position:absolute; inset:0; background:radial-gradient(820px 380px at 78% 0%,rgba(15,127,211,.40),transparent 62%); }
+.efdi-band-in{ position:relative; z-index:2; padding:48px 0; text-align:center; }
+@media (min-width:861px){ .efdi-band-in{ padding:62px 0; } }
+.efdi-band h2{ color:#fff; font-size:28px; margin-bottom:12px; }
+@media (min-width:861px){ .efdi-band h2{ font-size:36px; } }
+.efdi-band p{ color:rgba(255,255,255,.86); font-size:17.5px; max-width:630px; margin:0 auto 27px; }
+.efdi-band-cta{ display:flex; flex-direction:column; gap:12px; align-items:center; }
+@media (min-width:561px){ .efdi-band-cta{ flex-direction:row; justify-content:center; } }
+.efdi-band-note{ margin-top:18px; font-size:15px; color:rgba(255,255,255,.73); }
+.efdi-cards{ display:grid; grid-template-columns:1fr; gap:18px; }
+@media (min-width:641px){ .efdi-cards{ grid-template-columns:repeat(2,1fr); } }
+@media (min-width:981px){ .efdi-cards{ grid-template-columns:repeat(3,1fr); } }
+.efdi-card2{ background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); padding:27px 25px; box-shadow:var(--sh); display:flex; flex-direction:column; transition:transform .18s ease,box-shadow .18s ease; }
+.efdi-card2:hover{ transform:translateY(-3px); box-shadow:var(--sh-md); }
+.efdi-card2-top{ display:flex; align-items:center; gap:13px; margin-bottom:12px; }
+.efdi-card2-ico{ width:45px; height:45px; border-radius:13px; flex:none; background:var(--powder); color:var(--navy); display:flex; align-items:center; justify-content:center; }
+.efdi-card2-ico svg{ width:23px; height:23px; }
+.efdi-card2 h3{ font-size:20px; }
+.efdi-card2 p{ font-size:15.5px; color:var(--body); margin-bottom:16px; }
+.efdi .efdi-card2-call{ margin-top:auto; display:inline-flex; align-items:center; gap:8px; font-size:15px; font-weight:600; color:var(--blue); }
+.efdi-card2-call svg{ width:17px; height:17px; }
+.efdi .efdi-card2-call:hover{ color:var(--blue-h); text-decoration:underline; }
+.efdi-revs{ display:grid; grid-template-columns:1fr; gap:18px; }
+@media (min-width:761px){ .efdi-revs{ grid-template-columns:repeat(2,1fr); } }
+@media (min-width:1081px){ .efdi-revs{ grid-template-columns:repeat(3,1fr); } }
+.efdi-rev{ background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); padding:27px 25px; box-shadow:var(--sh); display:flex; flex-direction:column; }
+.efdi-rev-who{ display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+.efdi-rev-av{ width:43px; height:43px; border-radius:50%; flex:none; display:flex; align-items:center; justify-content:center; font-weight:600; font-size:17px; color:#fff; font-family:var(--fb); }
+.efdi-rev-who b{ display:block; font-size:15.5px; color:var(--navy); font-weight:600; font-family:var(--fb); }
+.efdi-rev-who span{ display:block; font-size:12.5px; color:var(--caption); }
+.efdi-rev .efdi-stars{ margin-bottom:12px; }
+.efdi-rev p{ font-size:15px; color:var(--body); }
+.efdi-rev p + p{ margin-top:12px; }
+.efdi-rev-src{ margin-top:18px; padding-top:14px; border-top:1px solid var(--line); font-size:12.5px; color:var(--caption); display:flex; align-items:center; gap:7px; }
+.efdi-rev-src svg{ width:14px; height:14px; }
+.efdi-split{ display:grid; grid-template-columns:1fr; gap:35px; align-items:center; }
+@media (min-width:941px){ .efdi-split{ grid-template-columns:1fr 1fr; gap:60px; } }
+.efdi-split-img{ border-radius:var(--r-xl); overflow:hidden; box-shadow:var(--sh-lg); }
+.efdi-split-img img{ width:100%; aspect-ratio:1; object-fit:cover; }
+@media (min-width:941px){ .efdi-split-rev .efdi-split-img{ order:2; } }
+.efdi-split h2{ font-size:30px; margin-bottom:16px; }
+@media (min-width:861px){ .efdi-split h2{ font-size:38px; } }
+.efdi-split p{ font-size:17px; color:var(--body); margin-bottom:16px; }
+.efdi-split-list{ display:grid; gap:13px; margin:22px 0 26px; }
+.efdi-split-list li{ display:flex; gap:12px; align-items:flex-start; font-size:16px; color:var(--body); }
+.efdi-split-list svg{ width:20px; height:20px; color:var(--blue); flex:none; margin-top:3px; }
+.efdi-split-list b{ color:var(--navy); font-weight:600; }
+.efdi-pay{ display:grid; grid-template-columns:1fr; gap:17px; }
+@media (min-width:641px){ .efdi-pay{ grid-template-columns:repeat(3,1fr); } }
+.efdi-pay-card{ background:#fff; border:1px solid var(--line); border-radius:var(--r-lg); padding:27px 25px; box-shadow:var(--sh); }
+.efdi-pay-card h3{ font-size:19.5px; margin-bottom:10px; display:flex; align-items:center; gap:10px; }
+.efdi-pay-card h3 svg{ width:22px; height:22px; color:var(--blue); flex:none; }
+.efdi-pay-card p{ font-size:15px; color:var(--body); }
+.efdi-disclaimer{ font-size:13px; color:var(--caption); margin-top:11px; font-style:italic; }
+.efdi-areas{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-top:8px; }
+.efdi-areas li{ background:#fff; border:1px solid var(--line-2); border-radius:var(--pill); padding:9px 20px; font-size:15px; color:var(--navy); font-weight:500; display:flex; align-items:center; gap:8px; }
+.efdi-areas svg{ width:14px; height:14px; color:var(--euc); flex:none; }
+.efdi-faq{ max-width:830px; margin:0 auto; display:grid; gap:12px; }
+.efdi-faq details{ background:#fff; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--sh); overflow:hidden; }
+.efdi-faq details[open]{ border-color:var(--line-2); }
+.efdi-faq summary{ list-style:none; cursor:pointer; padding:21px 55px 21px 23px; position:relative; font-family:var(--fh); font-size:19px; color:var(--navy); line-height:1.35; }
+.efdi-faq summary::-webkit-details-marker{ display:none; }
+.efdi-faq summary::after{ content:""; position:absolute; right:23px; top:50%; width:10px; height:10px; border-right:2px solid var(--blue); border-bottom:2px solid var(--blue); transform:translateY(-70%) rotate(45deg); transition:transform .2s ease; }
+.efdi-faq details[open] summary::after{ transform:translateY(-30%) rotate(-135deg); }
+.efdi-faq-body{ padding:0 23px 23px; font-size:16px; color:var(--body); }
+.efdi .efdi-faq-body a{ color:var(--blue); font-weight:600; text-decoration:underline; }
+.efdi-contact{ display:grid; grid-template-columns:1fr; gap:29px; }
+@media (min-width:941px){ .efdi-contact{ grid-template-columns:1fr 1fr; gap:48px; } }
+.efdi-contact-card{ background:#fff; border:1px solid var(--line); border-radius:var(--r-xl); padding:31px 27px; box-shadow:var(--sh-md); }
+@media (min-width:861px){ .efdi-contact-card{ padding:39px 35px; } }
+.efdi-contact-card h3{ font-size:24px; margin-bottom:20px; }
+.efdi-nap{ display:grid; gap:18px; margin-bottom:26px; }
+.efdi-nap li{ display:flex; gap:14px; align-items:flex-start; }
+.efdi-nap-ico{ width:41px; height:41px; border-radius:12px; flex:none; background:var(--air); color:var(--navy); display:flex; align-items:center; justify-content:center; }
+.efdi-nap-ico svg{ width:20px; height:20px; }
+.efdi-nap b{ display:block; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--caption); font-weight:600; margin-bottom:3px; }
+.efdi-nap span{ font-size:16.5px; color:var(--navy); font-style:normal; }
+.efdi .efdi-nap a{ font-size:16.5px; color:var(--navy); font-weight:600; }
+.efdi .efdi-nap a:hover{ color:var(--blue); }
+.efdi-hours{ width:100%; border-collapse:collapse; font-size:16px; }
+.efdi-hours td{ padding:9px 0; border-bottom:1px solid var(--line); color:var(--body); }
+.efdi-hours tr:last-child td{ border-bottom:0; }
+.efdi-hours td:last-child{ text-align:right; color:var(--navy); font-weight:600; }
+.efdi-hours tr.is-today td,.efdi-hours tr.is-today td:last-child{ color:var(--blue); }
+.efdi-map{ border-radius:var(--r-xl); overflow:hidden; box-shadow:var(--sh-md); min-height:325px; background:var(--powder); }
+.efdi-map iframe{ width:100%; height:100%; min-height:325px; border:0; display:block; }
+.efdi-foot{ background:var(--navy-d); color:rgba(255,255,255,.73); padding:41px 0 35px; font-size:15px; }
+.efdi-foot-grid{ display:grid; gap:22px; align-items:center; text-align:center; }
+@media (min-width:761px){ .efdi-foot-grid{ grid-template-columns:1fr auto; text-align:left; } }
+.efdi-foot b{ color:#fff; font-family:var(--fh); font-size:18.5px; font-weight:400; display:block; margin-bottom:6px; }
+.efdi .efdi-foot a{ color:var(--air); text-decoration:underline; }
+.efdi .efdi-foot a:hover{ color:#fff; }
+.efdi-foot-links{ display:flex; gap:20px; flex-wrap:wrap; justify-content:center; }
+.efdi-foot-legal{ margin-top:22px; padding-top:20px; border-top:1px solid rgba(255,255,255,.14); font-size:13px; color:rgba(255,255,255,.55); text-align:center; }
+.efdi-sticky{ position:fixed; left:0; right:0; bottom:0; z-index:100; background:rgba(1,42,75,.97);
+  backdrop-filter:blur(10px); border-top:1px solid rgba(255,255,255,.14);
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom)); display:flex; align-items:center; gap:12px;
+  box-shadow:0 -6px 24px rgba(2,58,102,.28); }
+@media (min-width:861px){ .efdi-sticky{ display:none; } }
+.efdi-sticky-txt{ flex:1; min-width:0; }
+.efdi-sticky-txt b{ display:block; color:#fff; font-size:14.5px; font-weight:600; line-height:1.25; }
+.efdi-sticky-txt span{ display:block; color:rgba(255,255,255,.71); font-size:12.5px; line-height:1.3; }
+.efdi-sticky .efdi-btn{ padding:15px 25px; font-size:17px; flex:none; }
+.efdi a:focus-visible,.efdi summary:focus-visible{ outline:3px solid var(--blue); outline-offset:3px; border-radius:4px; }
+@media (prefers-reduced-motion:reduce){ .efdi *,.efdi *::before,.efdi *::after{ transition:none !important; animation:none !important; } }
+
+/* Integration, accessibility, and small-screen refinements. */
+.efdi { --sh-cta:0 4px 14px rgba(8,116,191,.25); }
+.efdi-wrap, .efdi-hero-grid > *, .efdi-split > *, .efdi-contact > * { min-width:0; }
+.efdi-call { max-width:100%; }
+.efdi .efdi-call-block { display:flex; width:100%; }
+.efdi-hero-note { color:rgba(255,255,255,.8); font-size:14px; margin-top:18px; }
+.efdi-powder { background:var(--powder); }
+.efdi-sand { background:var(--sand); }
+.efdi-centered-cta { text-align:center; margin-top:38px; }
+.efdi-contact-button { margin-top:26px; }
+.efdi-status .efdi-sub { margin-top:16px; margin-bottom:0; }
+.efdi-card2-call { min-height:44px; }
+.efdi-rev-av { background:var(--navy); }
+.efdi-review-cta { background:var(--navy); border-color:var(--navy); justify-content:center; text-align:center; }
+.efdi-review-cta h3 { color:#fff; font-size:26px; margin-bottom:12px; }
+.efdi-review-cta p { color:rgba(255,255,255,.86); margin-bottom:22px; }
+.efdi-hours caption { text-align:left; font-size:12px; letter-spacing:.07em; text-transform:uppercase; color:var(--caption); font-weight:600; margin-bottom:10px; }
+.efdi-hours th { text-align:left; font-weight:400; padding:9px 0; border-bottom:1px solid var(--line); }
+.efdi-hours tr:last-child th { border-bottom:0; }
+.efdi-hours tr.is-today th { color:var(--blue); }
+.efdi-foot-legal { color:rgba(255,255,255,.75); }
+.efdi-sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+.efdi a:focus-visible, .efdi summary:focus-visible { outline:3px solid var(--blue); outline-offset:4px; box-shadow:0 0 0 2px #fff; }
+@media (max-width:560px) {
+  .efdi-hero h1 { font-size:clamp(30px,8.4vw,37px); overflow-wrap:break-word; }
+  .efdi .efdi-card-num { font-size:clamp(27px,8.2vw,39px); white-space:nowrap; }
+  .efdi-btn-lg { padding:18px 20px; font-size:17px; }
+  .efdi-card { padding:27px 20px; }
+  .efdi-status { padding:26px 20px; }
+  .efdi-contact-card { padding:27px 20px; }
+  .efdi-hours { font-size:14px; }
+  .efdi-sticky { gap:12px; padding-left:16px; padding-right:16px; }
+  .efdi-sticky .efdi-btn { padding:14px 18px; font-size:16px; }
+  .efdi-sticky-txt b { font-size:13px; }
+  .efdi-sticky-txt span { font-size:12px; }
+  .efdi-check p, .efdi-card2 p, .efdi-rev p, .efdi-pay-card p { font-size:16px; }
+}

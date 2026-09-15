@@ -1,0 +1,59 @@
+<script>
+  import type { HeroCopy } from "../../lib/ppc/types";
+  const root = document.querySelector<HTMLElement>("[data-insurance-campaign]");
+  if (root) {
+    try {
+      const variants: Record<string, HeroCopy> = JSON.parse(root.dataset.heroVariants || "{}");
+      const keyword = new URLSearchParams(window.location.search).get("kw");
+      if (keyword && Object.hasOwn(variants, keyword)) {
+        for (const field of ["heading", "accent", "body"] as const) {
+          const element = root.querySelector<HTMLElement>(`[data-hero-${field}]`);
+          if (element) element.textContent = variants[keyword][field];
+        }
+      }
+    } catch { /* The complete default hero works without JavaScript. */ }
+
+    // Use the office's time zone, regardless of the visitor's location. If Intl
+    // fails, retain the published hours instead of guessing from the device clock.
+    const updateHours = () => {
+      try {
+        const parts = new Intl.DateTimeFormat("en-US", {
+          timeZone: "America/Chicago", weekday: "short", hour: "numeric", minute: "numeric", hourCycle: "h23",
+        }).formatToParts(new Date());
+        const part = (type: string) => parts.find((entry) => entry.type === type)?.value;
+        const day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(part("weekday") || "");
+        const mins = Number(part("hour")) * 60 + Number(part("minute"));
+        if (day < 0 || !Number.isFinite(mins)) return;
+        const weekday = day >= 1 && day <= 4;
+        const label = weekday && mins >= 420 && mins < 990
+          ? "Open now until 4:30 PM"
+          : weekday && mins < 420 ? "Opens 7:00 AM today" : "Call Mon–Thu, 7:00a–4:30p";
+        const status = root.querySelector<HTMLElement>("[data-office-status]");
+        if (status) status.textContent = label;
+        root.querySelectorAll<HTMLElement>("[data-day]").forEach((row) => {
+          row.classList.toggle("is-today", Number(row.dataset.day) === day);
+        });
+      } catch { /* Static office hours remain visible. */ }
+    };
+    updateHours();
+    window.setInterval(updateHours, 60_000);
+
+    const analyticsWindow = window as typeof window & { dataLayer?: Record<string, unknown>[] };
+    root.querySelectorAll<HTMLAnchorElement>("[data-call-location]").forEach((link) => {
+      link.addEventListener("click", () => {
+        // One delivery through the site's existing GTM container, consistent with
+        // the other PPC pages. Also calling gtag can double-count the same click.
+        try {
+          analyticsWindow.dataLayer = analyticsWindow.dataLayer || [];
+          analyticsWindow.dataLayer.push({
+            event: "phone_call_click",
+            call_location: link.dataset.callLocation,
+            phone_number: link.getAttribute("href")?.replace("tel:", ""),
+            landing_page: root.dataset.insuranceCampaign,
+            carrier: root.dataset.carrier,
+          });
+        } catch { /* Analytics failure must never prevent a call. */ }
+      });
+    });
+  }
+</script>

@@ -1,0 +1,22 @@
+---
+import { practice } from "../../lib/practice";
+import Icon from "./PpcIcon.astro";
+
+interface Props {
+  location: string;
+  label?: string;
+  variant?: "primary" | "light" | "ghost" | "text";
+  large?: boolean;
+  block?: boolean;
+  icon?: boolean;
+  class?: string;
+}
+const { location, label, variant = "primary", large, block, icon = true, class: className } = Astro.props;
+---
+<a href={practice.phoneHref} data-call-location={location} class:list={[
+  "efdi-call", className,
+  { "efdi-btn": variant !== "text", [`efdi-btn-${variant}`]: variant !== "text", "efdi-btn-lg": large, "efdi-call-block": block },
+]}>
+  {icon && <Icon name="phone" />}
+  {label ?? <slot />}
+</a>

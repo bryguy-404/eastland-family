@@ -1,0 +1,182 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Call from "../components/ppc/InsuranceCallLink.astro";
+import Icon from "../components/ppc/PpcIcon.astro";
+import InsuranceScripts from "../components/ppc/InsuranceScripts.astro";
+import { insuranceCopy, insuranceChecks, insuranceServices, insuranceReviews, insuranceAreas, type InsuranceCarrier } from "../lib/ppc/insurance";
+import { practice } from "../lib/practice";
+import "../styles/ppc-insurance.css";
+
+interface Props { campaign: InsuranceCarrier; }
+const { campaign } = Astro.props;
+const { carrier, dentalName, hero, variants, faqs } = insuranceCopy(campaign);
+const canonical = `https://www.eastlandfamilydental.com/ppc/${campaign}/`;
+const title = `${dentalName} Plan Questions in Independence, MO | Eastland Family Dental`;
+const description = `Have a ${carrier} plan? Call Eastland Family Dental in Independence, MO about your dental benefits, verification, and care options. (816) 795-7007.`;
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const schema = [
+  {
+    "@context": "https://schema.org", "@type": "Dentist", name: practice.name,
+    url: canonical, telephone: "+1-816-795-7007",
+    image: "https://www.eastlandfamilydental.com/images/team/glenn-ashworth.webp",
+    address: { "@type": "PostalAddress", streetAddress: practice.address.street, addressLocality: "Independence", addressRegion: "MO", postalCode: "64055", addressCountry: "US" },
+    openingHoursSpecification: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"], opens: "07:00", closes: "16:30" },
+  },
+  { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
+];
+---
+<BaseLayout title={title} description={description} canonical={canonical} noindex>
+  <div class="efdi" data-insurance-campaign={campaign} data-carrier={carrier} data-hero-variants={JSON.stringify(variants)}>
+    <header class="efdi-head">
+      <div class="efdi-wrap efdi-head-in">
+        <div class="efdi-logo"><img src="/images/eastland-logo.png" alt="Eastland Family Dental — Independence, MO" width="500" height="500" /></div>
+        <div class="efdi-head-r">
+          <Call location="header-number" variant="text" icon={false} class="efdi-head-num"><span>Call the office</span>{practice.phoneDisplay}</Call>
+          <Call location="header-button"><span class="efdi-cta-s">Call</span><span class="efdi-cta-l">Call Now</span></Call>
+        </div>
+      </div>
+    </header>
+    <main id="main-content">
+      <section class="efdi-hero" aria-labelledby="insurance-heading">
+        <div class="efdi-hero-in"><div class="efdi-wrap efdi-hero-grid">
+          <div>
+            <div class="efdi-eyebrow"><Icon name="pin" />Independence, MO · Just Off US-40</div>
+            <h1 id="insurance-heading"><span data-hero-heading>{hero.heading}</span><em data-hero-accent>{hero.accent}</em></h1>
+            <p class="efdi-hero-lede" data-hero-body>{hero.body}</p>
+            <div class="efdi-hero-cta">
+              <Call location="hero-primary" label={`Call ${practice.phoneDisplay}`} large />
+              <Call location="hero-secondary" label="Ask About My Benefits" variant="ghost" icon={false} large />
+            </div>
+            <p class="efdi-hero-note">Plan participation and coverage must be confirmed for your specific plan.</p>
+            <ul class="efdi-hero-trust">
+              <li><Icon name="heart" />Patient reviews on Google</li>
+              <li><Icon name="people" />New patients welcome</li>
+              <li><Icon name="clock" />Office opens at 7:00 AM</li>
+            </ul>
+          </div>
+          <div class="efdi-card">
+            <h2>Your Benefits Questions Start Here</h2>
+            <p class="efdi-card-note">Have your card ready. Call our front desk during office hours to discuss your plan and next steps.</p>
+            <Call location="herocard-number" label={practice.phoneDisplay} variant="text" icon={false} class="efdi-card-num" />
+            <div class="efdi-card-tap">Tap to call · Mon–Thu 7:00a–4:30p</div>
+            <Call location="herocard-button" label="Call Now" large block />
+            <div class="efdi-card-rule"></div>
+            <ul class="efdi-card-facts">
+              <li><Icon name="card" /><span><b>Have your card ready.</b> Your member ID and group number help identify your plan.</span></li>
+              <li><Icon name="people" /><span><b>New patients welcome.</b> Ask about availability and what to bring to your first visit.</span></li>
+              <li><Icon name="heart" /><span><b>CareCredit for the gap.</b> Ask about financing for qualifying patients.</span></li>
+            </ul>
+          </div>
+        </div></div>
+      </section>
+
+      <section class="efdi-trustbar" aria-label="Care at Eastland">
+        <div class="efdi-wrap"><div class="efdi-tb-grid">
+          <div class="efdi-tb"><div class="efdi-tb-ico"><Icon name="heart" /></div><b>Patient Stories</b><span>Experiences shared on Google</span></div>
+          <div class="efdi-tb"><div class="efdi-tb-ico"><Icon name="card" /></div><b>Ask About Your Plan</b><span>Start with your coverage questions</span></div>
+          <div class="efdi-tb"><div class="efdi-tb-ico"><Icon name="clock" /></div><b>7:00 AM Starts</b><span>Office hours Monday to Thursday</span></div>
+          <div class="efdi-tb"><div class="efdi-tb-ico"><Icon name="smile" /></div><b>No Judgement</b><span>However long it has been</span></div>
+        </div></div>
+      </section>
+
+      <section class="efdi-sec" aria-labelledby="plan-heading">
+        <div class="efdi-wrap"><div class="efdi-status">
+          <div class="efdi-status-tag"><Icon name="card" />Before You Book</div>
+          <h2 id="plan-heading">Understanding Your {carrier} Plan</h2>
+          <p>Two people with {carrier} cards can have different coverage. The practice's participation in <strong>your specific plan</strong> matters, along with your annual maximum, deductible, treatment coverage, and any waiting periods.</p>
+          <p>Call with your card to ask about plan participation and how benefits are verified. The team can explain what information is needed and the next steps for discussing your care and an estimate.</p>
+          <Call location="status-block" label="Call and Ask About My Plan" large block />
+          <p class="efdi-sub">Have your <strong>{carrier}</strong> member ID and group number handy. Benefits verification does not guarantee insurer payment.</p>
+        </div></div>
+      </section>
+
+      <section class="efdi-sec efdi-powder" aria-labelledby="checks-heading">
+        <div class="efdi-wrap">
+          <div class="efdi-sh"><div class="efdi-sh-eye">Your Benefits Check</div><h2 id="checks-heading">Four Things That Help Explain What You Pay</h2><p>These are useful questions to ask when reviewing your plan. Network participation, treatment needs, and plan exclusions also affect your costs.</p></div>
+          <div class="efdi-checks">{insuranceChecks.map((check) => <div class="efdi-check"><div class="efdi-check-ico"><Icon name={check.icon} /></div><h3>{check.title}</h3><p>{check.body}</p></div>)}</div>
+          <div class="efdi-centered-cta"><Call location="checks" label="Ask About All Four" large /><p class="efdi-sub">Call <strong>{practice.phoneDisplay}</strong> — Mon–Thu, 7:00 AM–4:30 PM</p></div>
+        </div>
+      </section>
+
+      <section class="efdi-band" aria-labelledby="benefit-year-heading">
+        <div class="efdi-band-in"><div class="efdi-wrap efdi-narrow">
+          <h2 id="benefit-year-heading">Make Time for Your Benefits</h2>
+          <p>Check when your benefit year resets and whether unused benefits carry over. If you are due for a cleaning and exam, call about availability and the steps for checking your coverage.</p>
+          <div class="efdi-band-cta"><Call location="band1" label={`Call ${practice.phoneDisplay}`} variant="light" large /></div>
+          <p class="efdi-band-note">Monday–Thursday, 7:00 AM–4:30 PM · Outside office hours, follow the phone system's instructions.</p>
+        </div></div>
+      </section>
+
+      <section class="efdi-sec" aria-labelledby="services-heading">
+        <div class="efdi-wrap">
+          <div class="efdi-sh"><div class="efdi-sh-eye">Care for Your Family</div><h2 id="services-heading">Everyday Care. More Ways to Help.</h2><p>Eastland Family Dental is a general family practice in Independence, caring for children and adults. Explore care options and ask how your plan may apply.</p></div>
+          <div class="efdi-cards">{insuranceServices.map((service) => <div class="efdi-card2"><div class="efdi-card2-top"><div class="efdi-card2-ico"><Icon name={service.icon} /></div><h3>{service.title}</h3></div><p>{service.body}</p><Call location={service.location} label={service.cta} variant="text" class="efdi-card2-call" /></div>)}</div>
+        </div>
+      </section>
+
+      <section class="efdi-sec efdi-sand" aria-labelledby="reviews-heading">
+        <div class="efdi-wrap">
+          <div class="efdi-sh"><div class="efdi-sh-eye">What Independence Patients Say</div><h2 id="reviews-heading">Real Reviews from Real Neighbors</h2><p>Patients share their experiences with the Eastland team on Google.</p></div>
+          <div class="efdi-revs">
+            {insuranceReviews.map((review) => <figure class="efdi-rev"><figcaption class="efdi-rev-who"><div class="efdi-rev-av" aria-hidden="true">{review.initial}</div><div><b>{review.name}</b><span>Google review</span></div></figcaption><span class="efdi-stars" role="img" aria-label="5 out of 5 stars">{Array.from({ length: 5 }, () => <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 7 .9-5 4.9 1.2 6.9-6.3-3.3L5.7 21l1.2-6.9-5-4.9 7-.9Z" /></svg>)}</span><blockquote>{review.quote.split("\n\n").map((paragraph) => <p>{paragraph}</p>)}</blockquote><div class="efdi-rev-src"><Icon name="heart" />Shared on Google</div></figure>)}
+            <div class="efdi-rev efdi-review-cta"><h3>Make the Switch</h3><p>New patients welcome. Call with your {carrier} card to discuss your plan and getting started.</p><Call location="reviews-cta" label={practice.phoneDisplay} variant="light" block /></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="efdi-sec" aria-labelledby="payment-heading">
+        <div class="efdi-wrap">
+          <div class="efdi-sh"><div class="efdi-sh-eye">If Your Plan Does Not Cover It All</div><h2 id="payment-heading">Covering the Gap</h2><p>Your plan may cover only part of your care. Ask about an estimate, payment options, and any balance you may be responsible for.</p></div>
+          <div class="efdi-pay">
+            <div class="efdi-pay-card"><h3><Icon name="card" />Talk About Costs</h3><p>Discuss the proposed treatment and estimated costs before care begins. An examination may be needed; your insurer determines benefits under your plan.</p></div>
+            <div class="efdi-pay-card"><h3><Icon name="heart" />CareCredit</h3><p>CareCredit may be used for dental procedures and general care not covered by insurance. Approved cardholders make monthly payments according to the terms CareCredit provides.</p><p class="efdi-disclaimer">Subject to credit approval. Minimum monthly payments may be required.</p></div>
+            <div class="efdi-pay-card"><h3><Icon name="card" />Ways to Pay</h3><p>Cash, personal checks, debit cards and most major credit cards are accepted, with payment due at the time services are rendered.</p></div>
+          </div>
+          <div class="efdi-centered-cta"><Call location="cost" label="Ask About My Costs" large /><p class="efdi-sub">Medicaid is also accepted for sedation dentistry — ask when you call.</p></div>
+        </div>
+      </section>
+
+      <section class="efdi-sec efdi-powder" aria-labelledby="doctor-heading">
+        <div class="efdi-wrap"><div class="efdi-split efdi-split-rev">
+          <div class="efdi-split-img"><img src="/images/team/glenn-ashworth.webp" alt="Dr. Glenn Ashworth, general dentist at Eastland Family Dental" width="500" height="500" loading="lazy" decoding="async" /></div>
+          <div><div class="efdi-sh-eye">Meet the Dentist</div><h2 id="doctor-heading">Dr. Glenn Ashworth</h2><p>A general dentist in Independence, an Air Force veteran, and a father of six. He completed an Advanced Education in General Dentistry residency and an additional preceptorship while serving in the United States Air Force, and finished his dental education in Buffalo, New York.</p>
+            <ul class="efdi-split-list"><li><Icon name="check" /><span><b>Plain-English explanations</b> of your treatment options, with time for questions.</span></li><li><Icon name="check" /><span><b>One team for the whole family.</b> Children and adults are seen in the same office.</span></li><li><Icon name="check" /><span><b>Modern technology</b>, including CBCT 3D imaging and same-day CEREC crowns for eligible cases.</span></li></ul>
+            <Call location="doctor" label="Call to Meet the Team" large />
+          </div>
+        </div></div>
+      </section>
+
+      <section class="efdi-sec" aria-labelledby="areas-heading">
+        <div class="efdi-wrap"><div class="efdi-sh"><div class="efdi-sh-eye">Proudly Serving Eastern Jackson County</div><h2 id="areas-heading">A Dentist Near You, Just Off US-40</h2><p>We are at 19401 East US Highway 40, Ste. 180 — near I-70 and Little Blue Parkway, with parking right outside the door.</p></div><ul class="efdi-areas">{insuranceAreas.map((area) => <li><Icon name="pin" />{area}</li>)}</ul></div>
+      </section>
+
+      <section class="efdi-sec efdi-powder" aria-labelledby="faq-heading">
+        <div class="efdi-wrap"><div class="efdi-sh"><div class="efdi-sh-eye">Before You Call</div><h2 id="faq-heading">Questions We Hear Most</h2></div>
+          <div class="efdi-faq">{faqs.map((faq, index) => <details open={index === 0}><summary>{faq.question}</summary><div class="efdi-faq-body">{faq.location ? <>{faq.answer.split(practice.phoneDisplay)[0]}<Call location={faq.location} label={practice.phoneDisplay} variant="text" icon={false} />{faq.answer.split(practice.phoneDisplay)[1]}</> : faq.answer}</div></details>)}</div>
+        </div>
+      </section>
+
+      <section class="efdi-sec" aria-labelledby="contact-heading">
+        <div class="efdi-wrap"><div class="efdi-sh"><div class="efdi-sh-eye">Schedule with Eastland</div><h2 id="contact-heading">No Judgement. Just Care.</h2><p>Call the office and our scheduling coordinator can help you find a time that works.</p></div>
+          <div class="efdi-contact">
+            <div class="efdi-contact-card"><h3>Eastland Family Dental</h3>
+              <ul class="efdi-nap"><li><div class="efdi-nap-ico"><Icon name="phone" /></div><div><b>Phone</b><Call location="contact-nap" label={practice.phoneDisplay} variant="text" icon={false} /></div></li><li><div class="efdi-nap-ico"><Icon name="pin" /></div><div><b>Address</b><span>19401 East US Highway 40, Ste. 180<br />Independence, MO 64055</span></div></li></ul>
+              <table class="efdi-hours"><caption>Office Hours · Central Time</caption><tbody>{[1, 2, 3, 4, 5, 6, 0].map((day) => <tr data-day={day}><th scope="row">{days[day]}</th><td>{day >= 1 && day <= 4 ? "7:00 AM – 4:30 PM" : "Closed"}</td></tr>)}</tbody></table>
+              <Call location="contact-button" label={`Call ${practice.phoneDisplay}`} large block class="efdi-contact-button" />
+            </div>
+            <div class="efdi-map"><iframe title="Map to Eastland Family Dental, 19401 East US Highway 40 Ste. 180, Independence, MO 64055" src="https://maps.google.com/maps?q=19401%20East%20US%20Highway%2040%20Ste%20180%2C%20Independence%2C%20MO%2064055&t=m&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="efdi-band" aria-labelledby="final-heading"><div class="efdi-band-in"><div class="efdi-wrap efdi-narrow"><h2 id="final-heading">Your Next Step Starts With a Call</h2><p>Healthy smiles, cared for gently — right here in Independence, MO.</p><div class="efdi-band-cta"><Call location="band-final" label={`Call ${practice.phoneDisplay}`} variant="light" large /></div><p class="efdi-band-note">Monday–Thursday, 7:00 AM–4:30 PM</p></div></div></section>
+    </main>
+
+    <footer class="efdi-foot"><div class="efdi-wrap"><div class="efdi-foot-grid"><div><b>Eastland Family Dental</b>19401 East US Highway 40, Ste. 180, Independence, MO 64055 · <Call location="footer" label={practice.phoneDisplay} variant="text" icon={false} /><br />Monday–Thursday, 7:00 AM–4:30 PM · Friday–Sunday closed</div><div class="efdi-foot-links"><a href="/">Main Website</a><a href={practice.mapsUrl} target="_blank" rel="noopener noreferrer">Get Directions<span class="efdi-sr-only"> (opens in a new tab)</span></a></div></div>
+      <div class="efdi-foot-legal">© {new Date().getFullYear()} Eastland Family Dental. All rights reserved. Eastland Family Dental is a general family dental practice; Dr. Glenn Ashworth is a general dentist. {carrier} is a trademark of its respective owner and is referred to here only to describe dental benefits a patient may hold. Eastland Family Dental is not affiliated with, endorsed by, or acting as an agent of {carrier}. Naming this carrier does not confirm participation in any particular plan. Coverage, benefit levels and out-of-pocket costs vary by individual plan. Benefits verification and estimates do not guarantee insurer payment. CareCredit financing is subject to credit approval and minimum monthly payments may be required. Reviews shown are from the practice's public Google Business Profile. Treatment plans and results vary by patient; this page is general information, not dental advice.</div>
+    </div></footer>
+    <div class="efdi-sticky" role="region" aria-label="Call Eastland Family Dental"><div class="efdi-sticky-txt"><b>Eastland Family Dental</b><span data-office-status>Mon–Thu 7:00a–4:30p</span></div><Call location="sticky-mobile" label="Call Now" /></div>
+  </div>
+  {schema.map((entry) => <script is:inline type="application/ld+json" set:html={JSON.stringify(entry).replaceAll("<", "\\u003c")} />)}
+  <InsuranceScripts />
+</BaseLayout>

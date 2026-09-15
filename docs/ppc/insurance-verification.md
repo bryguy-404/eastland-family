@@ -1,6 +1,6 @@
 # Insurance campaign verification
 
-Completed 15 September 2026 against the production build at `http://127.0.0.1:4325`. Covers Ameritas, Cigna, Delta Dental, Aetna, and GEHA.
+Initial verification completed 15 September 2026 against the production build at `http://127.0.0.1:4325`. Covers Ameritas, Cigna, Delta Dental, Aetna, and GEHA. The acceptance-focused copy revision and its verification are recorded below.
 
 ## Build and site integrity
 
@@ -47,3 +47,16 @@ Local evidence is saved in `/private/tmp/eastland-insurance-qa/`, with result fi
 Telephone navigation was prevented during CTA testing, and GTM/analytics collection requests were blocked in the test browser. No calls were placed. These checks verify page behavior and the browser event, not downstream GA4/Google Ads receipt, connected calls, bookings, insurer coverage, or practice operations.
 
 This record covers the local production build before publication. Verify the live routes after the Cloudflare deployment completes. Client confirmations and implementation decisions are in `insurance-handoff.md`.
+
+## Acceptance-focused copy revision — 15 September 2026
+
+Following the project manager's feedback, all five carriers now lead with acceptance and appointment scheduling. The prior benefits tutorial was replaced with practice highlights; all 25 ad variants, metadata, call-card text, first FAQ, structured data, and footer were updated consistently. The short plan-specific coverage note replaces the original plan-confirmation note described above.
+
+- Astro check passed for 94 files with no errors, warnings, or hints. The production build generated 72 pages. Site and migration audits passed, with no broken links or assets and all 93 legacy URLs preserved or redirected.
+- The revised browser suite passed 520 assertions: all five carriers, eight viewport widths (320–1440 px), every ad variant and safe fallback, carrier-specific acceptance copy, scheduling CTA, no clipped text, matching visible/structured FAQs, keyboard operation, and all 125 call events.
+- Each default hero says “We Accept It at Eastland.” Every authored variant states acceptance, and every first FAQ begins with a direct “Yes” answer. Metadata also identifies the carrier as accepted. No headline leads with benefits questions, and the four-part insurance lesson is absent.
+- Desktop and mobile screenshots of all five revised pages were visually reviewed. The existing design, images, phone destinations, call-location identifiers, and office-hours script were retained.
+- All 67 other generated HTML pages were checked for incoming links to these campaigns; none were present. Sitemap exclusion and `noindex, follow` remain in place.
+- Temporary evidence: `/private/tmp/eastland-insurance-acceptance-qa/` and `/private/tmp/eastland-insurance-acceptance-results.json`. Runner: `/private/tmp/eastland-insurance-acceptance-qa.py`.
+
+Telephone navigation and analytics collection were blocked in the local test browser. No calls were placed. These tests verify copy consistency and page behavior; carrier acceptance comes from the project manager's supplied direction, and no blanket in-network or full-coverage claim is made. Production URLs are checked separately after the `main` deployment.

@@ -10,53 +10,53 @@ export const insuranceCarriers = {
 } as const;
 export type InsuranceCarrier = keyof typeof insuranceCarriers;
 
-// Source: Jordan's five 15 September 2026 briefs. Network participation, free
-// phone verification, claim filing, and callback timing are still unconfirmed.
-// Keep the default AND every ad variant qualified until those details are supplied.
+// The project manager's 15 September feedback confirms the campaign message:
+// Eastland accepts these carriers. Lead with acceptance and scheduling throughout.
+// Specific network products, coverage, and claim-handling details remain plan-dependent.
 export function insuranceCopy(slug: InsuranceCarrier) {
   const carrier = insuranceCarriers[slug];
-  // Avoid the brief's accidental “Delta Dental Dental Benefits” repetition.
+  // Keep the Delta Dental brand from becoming “Delta Dental Dental Insurance.”
   const dentalName = carrier === "Delta Dental" ? carrier : `${carrier} Dental`;
   const hero: HeroCopy = {
-    heading: `Using ${dentalName} Benefits in Independence, MO?`,
-    accent: "Start With Your Coverage Questions",
-    body: `Dental plans differ, even within the same carrier. Call Eastland Family Dental with your ${carrier} card to ask about your plan, the benefits verification process, and what you may need before booking.`,
+    heading: `Have ${dentalName} Insurance?`,
+    accent: "We Accept It at Eastland.",
+    body: `Eastland Family Dental accepts ${carrier} insurance for dental care in Independence, MO. From your next checkup to care for the whole family, we're here to help. New patients welcome—call to schedule your visit.`,
   };
   const variants: Record<string, HeroCopy> = {
     dentist: {
-      heading: `${dentalName} Benefits`, accent: "In Independence, MO",
-      body: `Looking for dental care with your ${carrier} plan? Call our team about plan participation, checking benefits, and becoming a new patient.`,
+      heading: `A Dentist Who Accepts ${carrier}`, accent: "Right Here in Independence, MO",
+      body: `Eastland Family Dental accepts ${carrier} insurance and welcomes new patients. Find care for your smile and your family with a local team. Call to schedule your visit.`,
     },
     "near-me": {
-      heading: `Using ${dentalName} Near You?`, accent: "Right Here in Independence, MO",
-      body: "We are just off US-40 near Little Blue Parkway, with parking at the door. Have your insurance card ready and call about your plan and the next steps for a visit.",
+      heading: `${carrier} Accepted Near You`, accent: "Visit Eastland in Independence, MO",
+      body: `Looking for a nearby dentist? Eastland Family Dental accepts ${carrier} insurance, just off US-40 near Little Blue Parkway. Call to schedule care close to home.`,
     },
     "find-a-dentist": {
-      heading: `Looking for a Dentist for Your ${carrier} Plan?`, accent: "Start With Your Benefits Questions",
-      body: "A directory listing is only a starting point. Call with your member ID to ask about participation in your specific plan and how benefits are checked.",
+      heading: `Looking for a Dentist Who Accepts ${carrier}?`, accent: "You've Found Eastland Family Dental.",
+      body: `Eastland Family Dental accepts ${carrier} insurance and cares for children and adults in Independence, MO. We'd love to welcome you. Call to arrange your first visit.`,
     },
     accepts: {
-      heading: `Have a ${carrier} Plan?`, accent: "Talk With Our Independence Team",
-      body: "Coverage and participation depend on the specific plan. Call with your card to ask how your plan may work here before scheduling care.",
+      heading: `Yes, We Accept ${carrier}.`, accent: "Call to Schedule Your Visit.",
+      body: `You can use your ${carrier} insurance at Eastland Family Dental in Independence, MO. Whether you're due for a cleaning or looking for a new family dentist, our team is ready to welcome you.`,
     },
     "dental-care": {
-      heading: `${dentalName} Care Questions?`, accent: "Let's Talk About Your Plan",
-      body: "Cleanings, fillings, crowns, dentures and children's dentistry in one family practice. Call about your care needs and how to check your benefits.",
+      heading: `Dental Care With ${carrier} Insurance`, accent: "Your Family Is Welcome at Eastland.",
+      body: `Eastland Family Dental accepts ${carrier} insurance. Explore cleanings, fillings, crowns, dentures, and children's care in one general family practice. Call to schedule your next visit.`,
     },
   };
   const faqs = [
     {
-      question: `Do you work with ${carrier} dental plans?`,
-      answer: `Call (816) 795-7007 with your ${carrier} card to ask about participation in your specific plan and the process for checking benefits. Naming a carrier on this page does not confirm that the practice participates in your plan. Confirm network status, coverage, and any costs before scheduling treatment.`,
+      question: `Do you accept ${carrier} insurance?`,
+      answer: `Yes. Eastland Family Dental accepts ${carrier} insurance. Call (816) 795-7007 to schedule your visit and have your insurance card handy. Coverage, network details, and out-of-pocket costs depend on your specific plan and treatment.`,
       location: "faq-accept",
     },
     {
       question: "What do I need to have ready when I call?",
-      answer: `Have your ${carrier} card, member ID, and group number if available. For a child or spouse, the team may also need the subscriber's details. The office can explain any additional information needed to check the plan.`,
+      answer: `Tell us who needs an appointment and what brings you in. Have your ${carrier} card, member ID, and group number handy if available. Our scheduling team can discuss appointment times and what to bring to your visit.`,
     },
     {
       question: "How much will my visit cost?",
-      answer: "Your cost depends on the treatment you need, the practice's participation in your plan, and your plan's benefits and exclusions. An examination may be needed to prepare an estimate. Benefits verification and estimates are not a guarantee of payment by your insurer.",
+      answer: "Your cost depends on your treatment and your plan's benefits, network terms, and exclusions. An examination may be needed to prepare an estimate. Ask the team about expected out-of-pocket costs before treatment; your insurer determines payment under your plan.",
     },
     {
       question: "Will you file the claim, or do I have to?",
@@ -68,7 +68,7 @@ export function insuranceCopy(slug: InsuranceCarrier) {
     },
     {
       question: "Are you accepting new patients?",
-      answer: "Yes. Call (816) 795-7007 and our scheduling coordinator can discuss availability, what to bring, and any requirements for your plan.",
+      answer: `Yes. New patients with ${carrier} insurance are welcome at Eastland. Call (816) 795-7007 and our scheduling coordinator can help you find a time for your first visit.`,
       location: "faq-newpatients",
     },
     {
@@ -83,18 +83,18 @@ export function insuranceCopy(slug: InsuranceCarrier) {
   return { carrier, dentalName, hero, variants, faqs };
 }
 
-export const insuranceChecks = [
-  { icon: "calendar", title: "Annual Maximum", body: "The most your plan pays during a benefit year, and how much you have already used. Ask when it resets and whether any unused benefits carry over." },
-  { icon: "card", title: "Your Deductible", body: "The amount you may pay before the plan contributes. Ask whether it applies to your treatment and how much you have already met." },
-  { icon: "tooth", title: "Coverage Percentage", body: "Preventive, basic and major treatment can be covered at different rates. Ask about your treatment, the plan's allowed amount, and any exclusions." },
-  { icon: "clock", title: "Waiting Periods", body: "Some plans have waiting periods before certain treatments are covered. Check the dates and limitations before planning your care." },
+export const insuranceHighlights = [
+  { icon: "people", title: "New Patients Welcome", body: "Looking for a new dental home? Our team is ready to welcome you and help you schedule your first visit." },
+  { icon: "smile", title: "Care for the Family", body: "Children and adults can see the same general dental team, with care that grows with your family's needs." },
+  { icon: "tooth", title: "More Care in One Place", body: "From checkups and cleanings to fillings, crowns, and dentures, explore care for your smile at Eastland." },
+  { icon: "clock", title: "Early Appointments", body: "Our office opens at 7:00 AM, Monday through Thursday. Call to find an available time that fits your day." },
 ] as const;
 
 export const insuranceServices = [
-  { icon: "sparkle", title: "Cleanings & Exams", body: "Routine cleanings, exams, digital X-rays and preventive care for children and adults. Recommended care and coverage depend on individual needs and your plan.", cta: "Book a cleaning", location: "svc-cleanings" },
-  { icon: "tooth", title: "Fillings & Crowns", body: "Tooth-colored fillings and CEREC ceramic crowns designed and milled in the office. Same-day crowns are an option for eligible cases; some teeth need laboratory work or additional visits.", cta: "Ask what's covered", location: "svc-restorative" },
+  { icon: "sparkle", title: "Cleanings & Exams", body: "Routine cleanings, exams, digital X-rays and preventive care for children and adults. Keep up with your smile's everyday needs.", cta: "Book a cleaning", location: "svc-cleanings" },
+  { icon: "tooth", title: "Fillings & Crowns", body: "Tooth-colored fillings and CEREC ceramic crowns designed and milled in the office. Same-day crowns are an option for eligible cases; some teeth need laboratory work or additional visits.", cta: "Schedule a tooth evaluation", location: "svc-restorative" },
   { icon: "smile", title: "Children's Dentistry", body: "Age-appropriate visits in a family practice, with fluoride and sealants when recommended. Ask about coordinating the children's appointments with your own.", cta: "Book the family", location: "svc-kids" },
-  { icon: "heart", title: "Gum & Periodontal Care", body: "Diagnosis, treatment and ongoing maintenance for gum disease. Ask how your specific plan treats periodontal care and any frequency limits.", cta: "Ask about gum health", location: "svc-perio" },
+  { icon: "heart", title: "Gum & Periodontal Care", body: "Diagnosis, treatment and ongoing maintenance for gum disease, with a care plan based on your examination and ongoing needs.", cta: "Ask about gum health", location: "svc-perio" },
   { icon: "people", title: "Dentures & Implants", body: "Full, partial, immediate and implant-supported dentures, plus bridges and extractions. An examination helps determine suitable options and treatment timing.", cta: "Talk through options", location: "svc-dentures" },
   { icon: "heart", title: "Sedation & Comfort", body: "Ask about nitrous oxide and other sedation options appropriate to your needs. Medicaid is accepted for sedation dentistry; eligibility and benefits need to be checked.", cta: "Ask about comfort", location: "svc-sedation" },
 ] as const;

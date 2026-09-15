@@ -19,26 +19,28 @@ The user approved publication on 15 September 2026, with the requirement that th
 ## Implementation
 
 - Five explicit Astro routes use `src/layouts/InsuranceCampaignLayout.astro`. Shared content and carrier names live in `src/lib/ppc/insurance.ts`, and the brief's `.efdi` design is isolated in `src/styles/ppc-insurance.css`.
-- Preserves the briefs' section order, navy/porcelain/sand/powder palette, serif headings, call card, four benefits questions, six services, five full patient reviews plus a call tile, payment options, dentist, service area, eight FAQs, contact/map, footer, and mobile call bar.
+- Uses the briefs' navy/porcelain/sand/powder palette, serif headings, call card, four practice highlights, six services, five full patient reviews plus a call tile, payment options, dentist, service area, eight FAQs, contact/map, footer, and mobile call bar.
 - Reuses the existing BaseLayout for metadata, skip link, and GTM container. The campaign has its own header/footer and no forms or main-site navigation menu.
 - Uses the existing logo and Dr. Ashworth's actual portrait. No carrier logos are included.
 - Each page has 25 telephone CTAs, retaining all 25 location identifiers from the briefs. The destination uses the practice's existing international format, `tel:+18167957007`.
 - All five briefs normalize to the same page source once carrier names/slugs are replaced. Their remaining differences concern ad keywords and ad-copy character counts, rather than different landing-page structures.
 
-## Copy decisions for accuracy
+## Campaign message and supporting details
 
-The briefs themselves leave several core promises unconfirmed. The implementation follows the qualified approach already used on the family and service campaigns:
+The project manager's feedback, relayed by Bryan on 15 September 2026, establishes the campaign message: patients with these five carriers can use their insurance at Eastland. The pages lead with carrier acceptance and an invitation to schedule. They are not guides to using insurance benefits.
 
-- Invites patients to ask about their plan and the verification process. Does not promise a free or immediate phone benefits check, a response within a few minutes, a guaranteed treatment price, or a next-business-day callback.
-- Identifies participation in the patient's particular plan as a relevant question. The status block and first FAQ explicitly require confirming participation and coverage. Neither the default hero nor any keyword variant asserts carrier acceptance or network participation.
-- Explains that benefits verification and estimates do not guarantee payment by an insurer. No specific coverage rates or dollar amounts are quoted.
+- Default hero: “Have [carrier] Insurance? We Accept It at Eastland.” Every ad variant reinforces acceptance, nearby care, or becoming a patient, with scheduling as the main CTA.
+- The call card, trust bar, acceptance section, call bands, first FAQ, title, description, and FAQ structured data carry the same message. The first FAQ answers “Yes” directly.
+- The former deductible/annual-maximum/coverage-percentage/waiting-period lesson is replaced by reasons to choose Eastland: new patients welcome, family care, range of services, and early appointments.
+- Plan-specific information remains secondary in the short hero note, acceptance-section note, payment section, FAQs, and footer. Acceptance is not presented as confirmation of every network product, every covered procedure, or a zero patient balance.
+- No free or immediate benefits-check promise, guaranteed price, specific coverage rate, or callback deadline is added. Benefits verification and estimates do not guarantee insurer payment.
 - Keeps CareCredit's credit-approval/monthly-payment disclosure and limits the Medicaid statement to sedation dentistry.
 - Qualifies same-day CEREC crowns by eligibility and possible laboratory/additional visits. Family appointment coordination depends on availability. Eastland is described as a general family practice, with pediatric dentistry identified as a separate specialty.
 - Uses all five full supplied reviews in the requested order. Removes relative dates, reviewer activity counts, an unverified aggregate Google score, and the separate Katie W. excerpt. Individual five-star ratings are from the supplied briefs; no aggregate review schema or count is added.
 - Fixes the briefs' repeated “Delta Dental Dental” in headings and metadata.
 - Omits unresolved privacy/terms placeholder links. The footer has working main-site and directions links and preserves carrier non-affiliation, individual-plan variation, financing, and treatment disclosures.
 
-These qualifications apply consistently to visible copy, metadata, and FAQ structured data. Dentist structured data includes practice details and hours, with no network or aggregate-rating claim.
+Carrier acceptance follows the project manager's direction; individual network products have not been independently verified. Visible copy, metadata, and FAQ structured data agree. Dentist structured data includes practice details and hours, with no specific network or aggregate-rating claim.
 
 ## Keyword variants
 
@@ -46,11 +48,11 @@ Every route supports all five authored options:
 
 | `kw` | Intent |
 | --- | --- |
-| `dentist` | Carrier dental benefits in Independence |
+| `dentist` | A dentist who accepts the carrier in Independence |
 | `near-me` | Nearby care and office location |
-| `find-a-dentist` | Finding care for the patient's plan |
-| `accepts` | Asking about plan participation |
-| `dental-care` | Dental care and benefits questions |
+| `find-a-dentist` | Finding a welcoming dentist who accepts the carrier |
+| `accepts` | Direct confirmation that Eastland accepts the carrier |
+| `dental-care` | Dental services at a practice accepting the carrier |
 
 Example: `/ppc/delta-dental/?kw=find-a-dentist`. Missing, unknown, inherited-property, and HTML-shaped values keep the default. Only allowlisted text is inserted with `textContent`. Default copy and native FAQs work without JavaScript.
 
@@ -64,8 +66,8 @@ Example: `/ppc/delta-dental/?kw=find-a-dentist`. Missing, unknown, inherited-pro
 
 ## Client details still needed
 
-1. Participation for each specific carrier/product: contracted plans, network status, and plans the practice does not work with. Update the status block, first FAQ, relevant hero variants, and metadata together after confirmation.
-2. Whether the front desk offers benefits verification before booking, by phone, and without charge; information needed and typical timing. The stronger “free benefits check” messaging can be restored once supported.
+1. Specific contracted products, network status, and any excluded plans within the accepted carriers. Add confirmed distinctions where useful without replacing the acceptance-and-scheduling message with a benefits tutorial.
+2. Benefits-verification logistics and any costs or timing, if needed for the supporting FAQs. These are not the campaign's main offer.
 3. Claim-filing and reimbursement arrangements, plus how estimates and balances are discussed.
 4. Actual privacy and terms URLs, and a current verified Google aggregate rating/count if that badge is desired.
 

@@ -3,7 +3,7 @@ import BaseLayout from "./BaseLayout.astro";
 import Call from "../components/ppc/InsuranceCallLink.astro";
 import Icon from "../components/ppc/PpcIcon.astro";
 import InsuranceScripts from "../components/ppc/InsuranceScripts.astro";
-import { insuranceCopy, insuranceChecks, insuranceServices, insuranceReviews, insuranceAreas, type InsuranceCarrier } from "../lib/ppc/insurance";
+import { insuranceCopy, insuranceHighlights, insuranceServices, insuranceReviews, insuranceAreas, type InsuranceCarrier } from "../lib/ppc/insurance";
 import { practice } from "../lib/practice";
 import "../styles/ppc-insurance.css";
 
@@ -11,8 +11,8 @@ interface Props { campaign: InsuranceCarrier; }
 const { campaign } = Astro.props;
 const { carrier, dentalName, hero, variants, faqs } = insuranceCopy(campaign);
 const canonical = `https://www.eastlandfamilydental.com/ppc/${campaign}/`;
-const title = `${dentalName} Plan Questions in Independence, MO | Eastland Family Dental`;
-const description = `Have a ${carrier} plan? Call Eastland Family Dental in Independence, MO about your dental benefits, verification, and care options. (816) 795-7007.`;
+const title = `${dentalName} Insurance Accepted in Independence, MO | Eastland Family Dental`;
+const description = `Eastland Family Dental accepts ${carrier} insurance in Independence, MO. New patients and families welcome. Call (816) 795-7007 to schedule your visit.`;
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const schema = [
   {
@@ -44,10 +44,10 @@ const schema = [
             <h1 id="insurance-heading"><span data-hero-heading>{hero.heading}</span><em data-hero-accent>{hero.accent}</em></h1>
             <p class="efdi-hero-lede" data-hero-body>{hero.body}</p>
             <div class="efdi-hero-cta">
-              <Call location="hero-primary" label={`Call ${practice.phoneDisplay}`} large />
-              <Call location="hero-secondary" label="Ask About My Benefits" variant="ghost" icon={false} large />
+              <Call location="hero-primary" label="Call to Schedule" large />
+              <Call location="hero-secondary" label="New Patient? Call Us" variant="ghost" icon={false} large />
             </div>
-            <p class="efdi-hero-note">Plan participation and coverage must be confirmed for your specific plan.</p>
+            <p class="efdi-hero-note">Coverage and out-of-pocket costs vary by plan and treatment.</p>
             <ul class="efdi-hero-trust">
               <li><Icon name="heart" />Patient reviews on Google</li>
               <li><Icon name="people" />New patients welcome</li>
@@ -55,16 +55,16 @@ const schema = [
             </ul>
           </div>
           <div class="efdi-card">
-            <h2>Your Benefits Questions Start Here</h2>
-            <p class="efdi-card-note">Have your card ready. Call our front desk during office hours to discuss your plan and next steps.</p>
+            <h2>Your Next Dental Visit Starts Here</h2>
+            <p class="efdi-card-note">{carrier} insurance accepted. Call our team to find a time for your visit.</p>
             <Call location="herocard-number" label={practice.phoneDisplay} variant="text" icon={false} class="efdi-card-num" />
             <div class="efdi-card-tap">Tap to call · Mon–Thu 7:00a–4:30p</div>
-            <Call location="herocard-button" label="Call Now" large block />
+            <Call location="herocard-button" label="Schedule Your Visit" large block />
             <div class="efdi-card-rule"></div>
             <ul class="efdi-card-facts">
-              <li><Icon name="card" /><span><b>Have your card ready.</b> Your member ID and group number help identify your plan.</span></li>
+              <li><Icon name="card" /><span><b>We accept {carrier}.</b> Bring your insurance card to your appointment.</span></li>
               <li><Icon name="people" /><span><b>New patients welcome.</b> Ask about availability and what to bring to your first visit.</span></li>
-              <li><Icon name="heart" /><span><b>CareCredit for the gap.</b> Ask about financing for qualifying patients.</span></li>
+              <li><Icon name="heart" /><span><b>A team for your family.</b> Dental care for children and adults in one office.</span></li>
             </ul>
           </div>
         </div></div>
@@ -73,7 +73,7 @@ const schema = [
       <section class="efdi-trustbar" aria-label="Care at Eastland">
         <div class="efdi-wrap"><div class="efdi-tb-grid">
           <div class="efdi-tb"><div class="efdi-tb-ico"><Icon name="heart" /></div><b>Patient Stories</b><span>Experiences shared on Google</span></div>
-          <div class="efdi-tb"><div class="efdi-tb-ico"><Icon name="card" /></div><b>Ask About Your Plan</b><span>Start with your coverage questions</span></div>
+          <div class="efdi-tb"><div class="efdi-tb-ico"><Icon name="card" /></div><b>{carrier} Accepted</b><span>Your insurance. Your local dental team.</span></div>
           <div class="efdi-tb"><div class="efdi-tb-ico"><Icon name="clock" /></div><b>7:00 AM Starts</b><span>Office hours Monday to Thursday</span></div>
           <div class="efdi-tb"><div class="efdi-tb-ico"><Icon name="smile" /></div><b>No Judgement</b><span>However long it has been</span></div>
         </div></div>
@@ -81,27 +81,27 @@ const schema = [
 
       <section class="efdi-sec" aria-labelledby="plan-heading">
         <div class="efdi-wrap"><div class="efdi-status">
-          <div class="efdi-status-tag"><Icon name="card" />Before You Book</div>
-          <h2 id="plan-heading">Understanding Your {carrier} Plan</h2>
-          <p>Two people with {carrier} cards can have different coverage. The practice's participation in <strong>your specific plan</strong> matters, along with your annual maximum, deductible, treatment coverage, and any waiting periods.</p>
-          <p>Call with your card to ask about plan participation and how benefits are verified. The team can explain what information is needed and the next steps for discussing your care and an estimate.</p>
-          <Call location="status-block" label="Call and Ask About My Plan" large block />
-          <p class="efdi-sub">Have your <strong>{carrier}</strong> member ID and group number handy. Benefits verification does not guarantee insurer payment.</p>
+          <div class="efdi-status-tag"><Icon name="card" />Your Insurance Is Welcome Here</div>
+          <h2 id="plan-heading">Yes, Eastland Accepts {carrier} Insurance</h2>
+          <p>If you have <strong>{carrier}</strong>, you can use your insurance at Eastland Family Dental. Whether you're due for a checkup, have a tooth on your mind, or need a dentist for your family, we'd love to see you.</p>
+          <p>Our Independence team welcomes new patients. Call to schedule your visit and let us know what care you're looking for.</p>
+          <Call location="status-block" label="Call to Schedule Your Visit" large block />
+          <p class="efdi-sub">Have your <strong>{carrier}</strong> card handy when you call. Specific network details, covered services, and costs depend on your plan.</p>
         </div></div>
       </section>
 
       <section class="efdi-sec efdi-powder" aria-labelledby="checks-heading">
         <div class="efdi-wrap">
-          <div class="efdi-sh"><div class="efdi-sh-eye">Your Benefits Check</div><h2 id="checks-heading">Four Things That Help Explain What You Pay</h2><p>These are useful questions to ask when reviewing your plan. Network participation, treatment needs, and plan exclusions also affect your costs.</p></div>
-          <div class="efdi-checks">{insuranceChecks.map((check) => <div class="efdi-check"><div class="efdi-check-ico"><Icon name={check.icon} /></div><h3>{check.title}</h3><p>{check.body}</p></div>)}</div>
-          <div class="efdi-centered-cta"><Call location="checks" label="Ask About All Four" large /><p class="efdi-sub">Call <strong>{practice.phoneDisplay}</strong> — Mon–Thu, 7:00 AM–4:30 PM</p></div>
+          <div class="efdi-sh"><div class="efdi-sh-eye">Welcome to Eastland</div><h2 id="checks-heading">Your Insurance. A Dental Team You'll Feel Good About.</h2><p>A local practice that accepts {carrier}, with care for your family and a team that takes time to explain your options.</p></div>
+          <div class="efdi-checks">{insuranceHighlights.map((highlight) => <div class="efdi-check"><div class="efdi-check-ico"><Icon name={highlight.icon} /></div><h3>{highlight.title}</h3><p>{highlight.body}</p></div>)}</div>
+          <div class="efdi-centered-cta"><Call location="checks" label="Schedule Your First Visit" large /><p class="efdi-sub">Call <strong>{practice.phoneDisplay}</strong> — Mon–Thu, 7:00 AM–4:30 PM</p></div>
         </div>
       </section>
 
-      <section class="efdi-band" aria-labelledby="benefit-year-heading">
+      <section class="efdi-band" aria-labelledby="appointment-band-heading">
         <div class="efdi-band-in"><div class="efdi-wrap efdi-narrow">
-          <h2 id="benefit-year-heading">Make Time for Your Benefits</h2>
-          <p>Check when your benefit year resets and whether unused benefits carry over. If you are due for a cleaning and exam, call about availability and the steps for checking your coverage.</p>
+          <h2 id="appointment-band-heading">Have {carrier}? Let's Get You Scheduled.</h2>
+          <p>Your next checkup starts with a call. Eastland accepts {carrier} insurance and welcomes new patients in Independence, MO.</p>
           <div class="efdi-band-cta"><Call location="band1" label={`Call ${practice.phoneDisplay}`} variant="light" large /></div>
           <p class="efdi-band-note">Monday–Thursday, 7:00 AM–4:30 PM · Outside office hours, follow the phone system's instructions.</p>
         </div></div>
@@ -109,7 +109,7 @@ const schema = [
 
       <section class="efdi-sec" aria-labelledby="services-heading">
         <div class="efdi-wrap">
-          <div class="efdi-sh"><div class="efdi-sh-eye">Care for Your Family</div><h2 id="services-heading">Everyday Care. More Ways to Help.</h2><p>Eastland Family Dental is a general family practice in Independence, caring for children and adults. Explore care options and ask how your plan may apply.</p></div>
+          <div class="efdi-sh"><div class="efdi-sh-eye">Care for Your Family</div><h2 id="services-heading">Everyday Care. More Ways to Help.</h2><p>Find care for children and adults at a general family practice that accepts {carrier}. Explore our services below; coverage for each service depends on your plan.</p></div>
           <div class="efdi-cards">{insuranceServices.map((service) => <div class="efdi-card2"><div class="efdi-card2-top"><div class="efdi-card2-ico"><Icon name={service.icon} /></div><h3>{service.title}</h3></div><p>{service.body}</p><Call location={service.location} label={service.cta} variant="text" class="efdi-card2-call" /></div>)}</div>
         </div>
       </section>
@@ -119,7 +119,7 @@ const schema = [
           <div class="efdi-sh"><div class="efdi-sh-eye">What Independence Patients Say</div><h2 id="reviews-heading">Real Reviews from Real Neighbors</h2><p>Patients share their experiences with the Eastland team on Google.</p></div>
           <div class="efdi-revs">
             {insuranceReviews.map((review) => <figure class="efdi-rev"><figcaption class="efdi-rev-who"><div class="efdi-rev-av" aria-hidden="true">{review.initial}</div><div><b>{review.name}</b><span>Google review</span></div></figcaption><span class="efdi-stars" role="img" aria-label="5 out of 5 stars">{Array.from({ length: 5 }, () => <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 7 .9-5 4.9 1.2 6.9-6.3-3.3L5.7 21l1.2-6.9-5-4.9 7-.9Z" /></svg>)}</span><blockquote>{review.quote.split("\n\n").map((paragraph) => <p>{paragraph}</p>)}</blockquote><div class="efdi-rev-src"><Icon name="heart" />Shared on Google</div></figure>)}
-            <div class="efdi-rev efdi-review-cta"><h3>Make the Switch</h3><p>New patients welcome. Call with your {carrier} card to discuss your plan and getting started.</p><Call location="reviews-cta" label={practice.phoneDisplay} variant="light" block /></div>
+            <div class="efdi-rev efdi-review-cta"><h3>Make the Switch</h3><p>Have {carrier} insurance? We accept it. Join the Eastland family—call to schedule your first visit.</p><Call location="reviews-cta" label={practice.phoneDisplay} variant="light" block /></div>
           </div>
         </div>
       </section>
@@ -169,11 +169,11 @@ const schema = [
         </div>
       </section>
 
-      <section class="efdi-band" aria-labelledby="final-heading"><div class="efdi-band-in"><div class="efdi-wrap efdi-narrow"><h2 id="final-heading">Your Next Step Starts With a Call</h2><p>Healthy smiles, cared for gently — right here in Independence, MO.</p><div class="efdi-band-cta"><Call location="band-final" label={`Call ${practice.phoneDisplay}`} variant="light" large /></div><p class="efdi-band-note">Monday–Thursday, 7:00 AM–4:30 PM</p></div></div></section>
+      <section class="efdi-band" aria-labelledby="final-heading"><div class="efdi-band-in"><div class="efdi-wrap efdi-narrow"><h2 id="final-heading">We Accept {carrier}. We'd Love to See You.</h2><p>Call Eastland Family Dental to schedule your next visit. New patients and families welcome in Independence, MO.</p><div class="efdi-band-cta"><Call location="band-final" label="Call to Schedule" variant="light" large /></div><p class="efdi-band-note">Monday–Thursday, 7:00 AM–4:30 PM</p></div></div></section>
     </main>
 
     <footer class="efdi-foot"><div class="efdi-wrap"><div class="efdi-foot-grid"><div><b>Eastland Family Dental</b>19401 East US Highway 40, Ste. 180, Independence, MO 64055 · <Call location="footer" label={practice.phoneDisplay} variant="text" icon={false} /><br />Monday–Thursday, 7:00 AM–4:30 PM · Friday–Sunday closed</div><div class="efdi-foot-links"><a href="/">Main Website</a><a href={practice.mapsUrl} target="_blank" rel="noopener noreferrer">Get Directions<span class="efdi-sr-only"> (opens in a new tab)</span></a></div></div>
-      <div class="efdi-foot-legal">© {new Date().getFullYear()} Eastland Family Dental. All rights reserved. Eastland Family Dental is a general family dental practice; Dr. Glenn Ashworth is a general dentist. {carrier} is a trademark of its respective owner and is referred to here only to describe dental benefits a patient may hold. Eastland Family Dental is not affiliated with, endorsed by, or acting as an agent of {carrier}. Naming this carrier does not confirm participation in any particular plan. Coverage, benefit levels and out-of-pocket costs vary by individual plan. Benefits verification and estimates do not guarantee insurer payment. CareCredit financing is subject to credit approval and minimum monthly payments may be required. Reviews shown are from the practice's public Google Business Profile. Treatment plans and results vary by patient; this page is general information, not dental advice.</div>
+      <div class="efdi-foot-legal">© {new Date().getFullYear()} Eastland Family Dental. All rights reserved. Eastland Family Dental is a general family dental practice; Dr. Glenn Ashworth is a general dentist. {carrier} is a trademark of its respective owner. Eastland accepts {carrier} insurance and is an independent dental practice, not an insurer or its agent. Carrier names do not imply sponsorship or endorsement. Network status, covered services, benefit levels, and out-of-pocket costs vary by plan. Acceptance does not mean every service is covered or that there is no patient balance. Benefits verification and estimates do not guarantee insurer payment. CareCredit financing is subject to credit approval and minimum monthly payments may be required. Reviews shown are from the practice's public Google Business Profile. Treatment plans and results vary by patient; this page is general information, not dental advice.</div>
     </div></footer>
     <div class="efdi-sticky" role="region" aria-label="Call Eastland Family Dental"><div class="efdi-sticky-txt"><b>Eastland Family Dental</b><span data-office-status>Mon–Thu 7:00a–4:30p</span></div><Call location="sticky-mobile" label="Call Now" /></div>
   </div>

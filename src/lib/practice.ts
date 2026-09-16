@@ -7,8 +7,7 @@ export const practice = {
     street: "19401 East US Highway 40 Ste. 180",
     cityStateZip: "Independence, MO 64055",
   },
-  mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=19401+East+US+Highway+40+Suite+180+Independence+MO+64055",
+  mapsUrl: "https://www.google.com/maps?cid=2708524791565411415",
   hours: [
     { days: "Monday", hours: "7:00 AM–4:30 PM" },
     { days: "Tuesday", hours: "7:00 AM–4:30 PM" },
@@ -36,4 +35,3 @@ export const practice = {
     },
   ],
 } as const;
-

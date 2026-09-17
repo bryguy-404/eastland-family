@@ -83,9 +83,9 @@ const prioritySeo = new Map([
     h1: "Dental Procedures in Independence, MO",
   }],
   ["/procedures/sedation-dentistry/", {
-    title: "Medicaid Sedation Dentistry | Independence, MO",
-    description: "Eastland Family Dental accepts Medicaid for sedation dentistry in Independence, MO. Ask about comfort options for root canal treatment; benefits are verified.",
-    h1: "Medicaid Sedation Dentistry in Independence, MO",
+    title: "Missouri Medicaid Sedation Dentistry | Independence, MO",
+    description: "Eastland Family Dental accepts Missouri Medicaid for sedation dentistry in Independence, MO. Comfort options for root canals, benefits verified first.",
+    h1: "Missouri Medicaid Sedation Dentistry in Independence, MO",
   }],
   ["/contact/", {
     title: "Contact Eastland Family Dental | Independence, MO",

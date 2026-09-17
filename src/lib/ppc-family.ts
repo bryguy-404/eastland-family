@@ -73,7 +73,7 @@ export const familyFaqs = [
   },
   {
     question: "Do you accept my insurance?",
-    answer: "Call with your insurance details so the office can explain the process for checking your plan and benefits. Coverage varies by plan and treatment. CareCredit is also available for qualifying patients, and Medicaid is accepted for sedation dentistry.",
+    answer: "Call with your insurance details so the office can explain the process for checking your plan and benefits. Coverage varies by plan and treatment. CareCredit is also available for qualifying patients, and Missouri Medicaid is accepted for sedation dentistry.",
   },
   {
     question: "When is the office open?",

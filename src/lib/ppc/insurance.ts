@@ -96,7 +96,7 @@ export const insuranceServices = [
   { icon: "smile", title: "Children's Dentistry", body: "Age-appropriate visits in a family practice, with fluoride and sealants when recommended. Ask about coordinating the children's appointments with your own.", cta: "Book the family", location: "svc-kids" },
   { icon: "heart", title: "Gum & Periodontal Care", body: "Diagnosis, treatment and ongoing maintenance for gum disease, with a care plan based on your examination and ongoing needs.", cta: "Ask about gum health", location: "svc-perio" },
   { icon: "people", title: "Dentures & Implants", body: "Full, partial, immediate and implant-supported dentures, plus bridges and extractions. An examination helps determine suitable options and treatment timing.", cta: "Talk through options", location: "svc-dentures" },
-  { icon: "heart", title: "Sedation & Comfort", body: "Ask about nitrous oxide and other sedation options appropriate to your needs. Medicaid is accepted for sedation dentistry; eligibility and benefits need to be checked.", cta: "Ask about comfort", location: "svc-sedation" },
+  { icon: "heart", title: "Sedation & Comfort", body: "Ask about nitrous oxide and other sedation options appropriate to your needs. Missouri Medicaid is accepted for sedation dentistry; eligibility and benefits need to be checked.", cta: "Ask about comfort", location: "svc-sedation" },
 ] as const;
 
 // Complete supplied reviews, in the order requested in all five briefs.

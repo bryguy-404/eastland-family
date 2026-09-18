@@ -9,11 +9,11 @@ const siteOrigin = Astro.site ?? new URL("https://www.eastlandfamilydental.com")
 const faqs = [
   {
     question: "Is sedation dentistry safe?",
-    answer: "Every sedation recommendation begins with a review of your health history, medications, treatment needs, and concerns. A board-eligible anesthesiologist supports sedation care at KC Endodontics, and the team will explain the monitoring and instructions that apply to your plan.",
+    answer: "Every sedation recommendation begins with a review of your health history, medications, treatment needs and concerns. IV sedation is administered and monitored by a board-eligible anesthesiologist, and the team will explain the monitoring and instructions that apply to your plan.",
   },
   {
     question: "Will I be asleep during my procedure?",
-    answer: "Not with nitrous oxide. It is intended to help you relax while remaining awake and able to respond. If you are looking for a different level of sedation, ask the team which options are available and appropriate for your care.",
+    answer: "Not with nitrous oxide. It helps you relax while you stay awake and able to respond. With IV sedation you will be deeply relaxed and may not remember the procedure. The anesthesiologist will explain what to expect.",
   },
   {
     question: "Which type of sedation is right for me?",
@@ -24,12 +24,16 @@ const faqs = [
     answer: "Nitrous oxide is available for children and adults when appropriate. The team will consider your child’s age, health history, comfort, and treatment needs before making a recommendation.",
   },
   {
+    question: "Do I need Missouri Medicaid to get sedation?",
+    answer: "No. Sedation is available to every patient. Call with your insurance information and the team will check eligibility and build a plan. Eastland also accepts Missouri Medicaid for sedation cases.",
+  },
+  {
     question: "Does Eastland Family Dental accept Missouri Medicaid for sedation dentistry?",
-    answer: "Yes. Eastland Family Dental accepts Missouri Medicaid for sedation dentistry. Eligibility, benefits, clinical requirements and any authorization needs vary by patient and plan, so the team will verify coverage and discuss expected costs before treatment.",
+    answer: "Yes. Eastland Family Dental accepts Missouri Medicaid for sedation cases. Eligibility, benefits, clinical requirements and any authorization needs vary by patient and plan, so the team will verify coverage and discuss expected costs before treatment.",
   },
   {
     question: "Where will my sedation appointment take place?",
-    answer: "Sedation procedures for Eastland patients are performed at KC Endodontics, Dr. Moore's specialty practice in Prairie Village, Kansas. Eastland coordinates the referral, forwards your records and verifies your Missouri Medicaid sedation benefits before the visit.",
+    answer: "IV sedation procedures for Eastland patients are performed at KC Endodontics, Dr. Moore's specialty practice in Prairie Village, Kansas. Eastland coordinates the referral, forwards your records and verifies your benefits before the visit. Nitrous oxide is available here at Eastland.",
   },
   {
     question: "How do I get started?",
@@ -72,12 +76,12 @@ const reasons = [
 ---
 
 <InteriorLayout
-  title="Missouri Medicaid Sedation Dentistry | Independence, MO"
-  description="Eastland Family Dental accepts Missouri Medicaid for sedation dentistry in Independence, MO. Comfort options for root canals, benefits verified first."
+  title="Sedation Dentistry, Missouri Medicaid | Independence, MO"
+  description="IV sedation and nitrous oxide at Eastland Family Dental in Independence, MO. Open to all patients, Missouri Medicaid accepted. Benefits verified first."
   path={path}
   eyebrow="Sedation dentistry"
-  heading="Missouri Medicaid Sedation Dentistry in Independence, MO"
-  intro="Eastland Family Dental accepts Missouri Medicaid for sedation dentistry. Our team verifies eligibility and benefits while planning each step around your health, comfort and treatment needs."
+  heading="Sedation Dentistry in Independence, MO"
+  intro="Eastland Family Dental offers IV sedation and nitrous oxide, and sedation is available to every patient. Missouri Medicaid is accepted for sedation cases. Our team verifies eligibility and benefits while planning each step around your health, comfort and treatment needs."
   additionalStructuredData={additionalStructuredData}
 >
   <nav class="px-4 pb-2" aria-label="Breadcrumb">
@@ -103,8 +107,8 @@ const reasons = [
 
       <aside class="reveal reveal-right rounded-4xl bg-air p-7 sm:rounded-5xl sm:p-9" aria-labelledby="anesthesiologist-title">
         <p class="text-xs font-bold tracking-[.2em] text-blue uppercase">An added level of support</p>
-        <h2 id="anesthesiologist-title" class="mt-4 font-heading text-3xl leading-tight sm:text-4xl">A board-eligible anesthesiologist supports sedation care at KC Endodontics.</h2>
-        <p class="mt-5 text-lg leading-relaxed text-body">This anesthesia professional can focus on comfort and monitoring while the dentist focuses on treatment. The exact care team and monitoring plan will be explained before your procedure.</p>
+        <h2 id="anesthesiologist-title" class="mt-4 font-heading text-3xl leading-tight sm:text-4xl">IV sedation, administered and monitored by a board-eligible anesthesiologist.</h2>
+        <p class="mt-5 text-lg leading-relaxed text-body">For deeper comfort, IV sedation is administered and monitored by a board-eligible anesthesiologist. This anesthesia professional focuses on your comfort and monitoring while the dentist focuses on treatment. The exact care team and monitoring plan will be explained before your procedure.</p>
       </aside>
     </div>
   </section>
@@ -113,8 +117,8 @@ const reasons = [
     <div class="reveal mx-auto grid max-w-7xl gap-8 rounded-4xl bg-sand p-7 sm:rounded-5xl sm:p-10 lg:grid-cols-[1.3fr_.7fr] lg:items-center lg:gap-14">
       <div>
         <p class="text-xs font-bold tracking-[.2em] text-eucalyptus uppercase">Sister practice</p>
-        <h2 id="sister-practice-title" class="mt-4 font-heading text-3xl leading-tight sm:text-4xl">Sedation procedures are performed at KC Endodontics.</h2>
-        <p class="mt-5 text-lg leading-relaxed text-body">Dr. Moore owns both Eastland Family Dental and KC Endodontics in Prairie Village, Kansas. Sedation cases from Eastland are scheduled and performed at KC Endodontics, where a board-eligible anesthesiologist supports care. Our team handles the referral and forwards your records. Missouri Medicaid sedation benefits are verified before your visit.</p>
+        <h2 id="sister-practice-title" class="mt-4 font-heading text-3xl leading-tight sm:text-4xl">IV sedation procedures are performed at KC Endodontics.</h2>
+        <p class="mt-5 text-lg leading-relaxed text-body">Dr. Moore owns both Eastland Family Dental and KC Endodontics in Prairie Village, Kansas. IV sedation cases from Eastland are scheduled and performed at KC Endodontics, where IV sedation is administered and monitored by a board-eligible anesthesiologist. Our team handles the referral, forwards your records and verifies your benefits before the visit, including Missouri Medicaid.</p>
       </div>
       <div class="border-t border-navy/15 pt-7 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10">
         <p class="text-lg font-bold text-navy">KC Endodontics</p>
@@ -128,9 +132,9 @@ const reasons = [
     <div class="reveal mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1.2fr_.8fr] lg:items-center lg:gap-20">
       <div>
         <p class="text-xs font-bold tracking-[.2em] text-blue uppercase">Missouri Medicaid and sedation dentistry</p>
-        <h2 id="medicaid-sedation-title" class="mt-4 font-heading text-4xl leading-tight sm:text-5xl">Benefits verified before treatment begins.</h2>
+        <h2 id="medicaid-sedation-title" class="mt-4 font-heading text-4xl leading-tight sm:text-5xl">All patients are welcome. Missouri Medicaid is accepted too.</h2>
         <div class="mt-6 space-y-5 text-lg leading-relaxed text-body">
-          <p>Eastland Family Dental accepts Missouri Medicaid for sedation dentistry. Because eligibility, covered services, clinical requirements and authorization rules can vary, the team will verify your benefits and discuss expected costs before treatment.</p>
+          <p>Sedation at Eastland is available to every patient, whatever your insurance. Call with your plan information and the team will check eligibility and build a treatment plan around it. Eastland also accepts Missouri Medicaid for sedation cases. Because eligibility, covered services, clinical requirements and authorization rules vary by plan, benefits are verified and expected costs are discussed before treatment.</p>
           <p>If you are planning root canal therapy or another procedure, tell the team about any anxiety or previous difficulty receiving dental care. They can explain whether sedation is appropriate for your treatment plan and which comfort options may be available.</p>
         </div>
       </div>
@@ -151,6 +155,7 @@ const reasons = [
       </div>
       <div class="reveal reveal-right border-t border-white/20 pt-7 text-lg leading-relaxed text-white/75">
         <p>Nitrous oxide, often called laughing gas, is available when appropriate. It is breathed through a small mask and is intended to help you feel calmer while remaining awake and able to communicate with the team.</p>
+        <p class="mt-5">Nitrous oxide is provided by your dentist, does not require an anesthesiologist or insurance authorization, and is paid for at the time of your visit.</p>
         <p class="mt-5">Every patient is different. Your dental team will discuss whether nitrous oxide fits your visit and explain what to expect before, during, and after treatment. If you are interested in another level of sedation, ask which options are available for your specific needs.</p>
       </div>
     </div>
